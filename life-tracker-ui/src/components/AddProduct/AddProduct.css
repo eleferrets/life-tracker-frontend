@@ -1,0 +1,68 @@
+.AddProduct {
+  /* height: 300px; */
+  display: flex;
+  flex-direction: column;
+}
+.AddProduct h2 {
+  color: black;
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+.AddProduct button {
+  border: none;
+  outline: none;
+  background: none;
+  background: rgba(44, 64, 71, 1);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* margin-bottom: 6px; */
+  height: 60px;
+  cursor: pointer;
+  width: 150px;
+  font-size: 18px;
+}
+.AddProduct button:active {
+  transform: translateY(1px);
+}
+.AddProduct .form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.AddProduct .fields {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  flex: 1;
+  gap: 20px;
+}
+.AddProduct .fields .field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.AddProduct .fields .field label {
+  color: black;
+  margin-bottom: 7px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+.AddProduct .fields .field input {
+  height: 60px;
+  width: 100%;
+  background: #fffdfd;
+  border: 1px solid #bbbbbb;
+  font-size: 18px;
+  padding: 0 15px;
+}
+.AddProduct .isProcessing {
+  margin-bottom: 10px;
+}
+.AddProduct .red {
+  margin-bottom: 10px;
+  color: red;
+}

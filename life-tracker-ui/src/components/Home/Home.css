@@ -1,0 +1,9 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  padding: 60px;
+  align-items: center;
+  padding-left: 80px;
+}
