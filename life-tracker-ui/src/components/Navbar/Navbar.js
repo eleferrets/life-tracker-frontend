@@ -10,12 +10,12 @@ export default function Navbar(filterInputValue, handleOnInputChange) {
         <img src={codepath} alt="logo" />
       </Link>
 
-      <div className="search">
+      {/* <div className="search">
         <FilterInput
           filterInputValue={filterInputValue}
           handleOnInputChange={handleOnInputChange}
         />
-      </div>
+      </div> */}
 
       <div className="content">
         

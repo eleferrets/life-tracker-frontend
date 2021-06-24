@@ -1,0 +1,60 @@
+CREATE TABLE posts (
+  id          SERIAL PRIMARY KEY,
+  caption    VARCHAR(140) NOT NULL,
+  image_url      TEXT NOT NULL,
+  user_id INTEGER NOT NULL,
+  created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at   TIMESTAMP NOT NULL DEFAULT NOW(),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)
+
+CREATE TABLE ratings (
+  -- Many to many relationship
+  rating          INTEGER NOT NULL CHECK (rating > 0 AND rating <= 10),
+  post_id    INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+  user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+  -- Primary keys must be unique, so we combine them
+  PRIMARY KEY (post_id, user_id)
+);
+
+// import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faHome} from '@fortawesome/free-solid-svg-icons'
+// // Be sure to include styles at some point, probably during your bootstraping
+// import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+{/* <SideNav
+    onSelect={(selected) => {
+        // Add your code here
+    }}
+>
+    <SideNav.Toggle />
+    <SideNav.Nav defaultSelected="home">
+        <NavItem eventKey="home" >
+            <NavIcon>
+            <FontAwesomeIcon icon={faHome} />
+            </NavIcon>
+            <NavText>
+                Home
+            </NavText>
+        </NavItem>
+        {/* <NavItem eventKey="charts">
+            <NavIcon>
+                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+            </NavIcon>
+            <NavText>
+                Charts
+            </NavText>
+            <NavItem eventKey="charts/linechart">
+                <NavText>
+                    Line Chart
+                </NavText>
+            </NavItem>
+            <NavItem eventKey="charts/barchart">
+                <NavText>
+                    Bar Chart
+                </NavText>
+            </NavItem>
+        </NavItem> }
+    </SideNav.Nav>
+</SideNav> */}

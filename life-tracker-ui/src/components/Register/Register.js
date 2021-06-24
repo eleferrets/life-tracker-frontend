@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios"
-import "./Signup.css"
+import "./Register.css"
 
-export default function Signup({ user, setUser }) {
+export default function Register({ user, setUser }) {
   const navigate = useNavigate()
   const [isProcessing, setIsProcessing] = useState(false)
   const [errors, setErrors] = useState({})
   const [form, setForm] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    userName: "",
     email: "",
     password: "",
     passwordConfirm: "",
@@ -56,7 +59,9 @@ export default function Signup({ user, setUser }) {
 
     try {
       const res = await axios.post("http://localhost:3001/auth/register", {
-        name: form.name,
+        first_name: form.firstName,
+        username: form.userName,
+        last_name: form.lastName,
         email: form.email,
         password: form.password,
       })
@@ -75,7 +80,7 @@ export default function Signup({ user, setUser }) {
   }
 
   return (
-    <div className="Signup">
+    <div className="Register">
       <div className="card">
         <h2>Create Account</h2>
 
@@ -84,15 +89,39 @@ export default function Signup({ user, setUser }) {
 
         <div className="form">
           <div className="input-field">
-            <label htmlFor="name">Full Name</label>
+            <label htmlFor="name">Username</label>
             <input
               type="text"
               name="name"
-              placeholder="Enter your full name"
-              value={form.name}
+              placeholder="Enter your username"
+              value={form.userName}
               onChange={handleOnInputChange}
             />
-            {errors.name && <span className="error">{errors.name}</span>}
+            {errors.userName && <span className="error">{errors.userName}</span>}
+          </div>
+          <div className="split-inputs">
+            <div className="input-field">
+              <label htmlFor="name">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="Jane"
+                value={form.firstName}
+                onChange={handleOnInputChange}
+              />
+              {errors.firstName && <span className="error">{errors.firstName}</span>}
+            </div>
+            <div className="input-field">
+              <label htmlFor="name">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Doe"
+                value={form.lastName}
+                onChange={handleOnInputChange}
+              />
+              {errors.lastName && <span className="error">{errors.lastName}</span>}
+            </div>
           </div>
 
           <div className="input-field">
