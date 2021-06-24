@@ -1,36 +1,48 @@
 CREATE TABLE users (
   id          SERIAL PRIMARY KEY,
-  name    TEXT NOT NULL,
-  password    TEXT NOT NULL,
   username    TEXT NOT NULL UNIQUE,
+  password    TEXT NOT NULL,
+  first_name    TEXT NOT NULL,
+  last_name    TEXT NOT NULL,
   email       TEXT NOT NULL UNIQUE CHECK (POSITION('@' IN email) > 1),
-  is_admin    BOOLEAN NOT NULL DEFAULT FALSE,
-  created_at  TIMESTAMP NOT NULL DEFAULT NOW()
+  is_admin    BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE products (
+CREATE TABLE exercises (
   id          SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  category TEXT NOT NULL,
-   image      TEXT NOT NULL,
-  description TEXT NOT NULL,
-  price    BIGINT NOT NULL
+  category TEXT,
+   duration      INTEGER,
+  intensity INTEGER,
+  user_id   INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  timestamp  TIMESTAMP DEFAULT NOW()
  
 );
 
-CREATE TABLE orders (
+CREATE TABLE nutrition (
   id          SERIAL PRIMARY KEY,
-  customer_id  INTEGER NOT NULL,
-  created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
-  FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE
+  name TEXT NOT NULL,
+  category TEXT,
+  quantity INTEGER DEFAULT 1,
+  calories INTEGER,
+  image_url TEXT,
+  user_id   INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  timestamp  TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE order_details (
-  -- Many to many relationship
-  order_id   INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-  product_id    INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-  quantity   INTEGER NOT NULL DEFAULT 1,
-  discount  INTEGER NULL,
-  -- Primary keys must be unique, so we combine them
-  PRIMARY KEY (order_id, product_id)
+CREATE TABLE sleep (
+  id          SERIAL PRIMARY KEY,
+  start_time TIMESTAMP NOT NULL,
+  end_time TIMESTAMP NOT NULL,
+  user_id   INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  timestamp  TIMESTAMP DEFAULT NOW()
 );
+
+-- CREATE TABLE activity (
+--   id          SERIAL PRIMARY KEY,
+--   activity_type VARCHAR(50) NOT NULL,
+--   exercise_id   INTEGER REFERENCES exercises(id) ON DELETE CASCADE,
+--   nutrition_id    INTEGER REFERENCES nutrition(id) ON DELETE CASCADE,
+--   sleep_id    INTEGER REFERENCES sleep(id) ON DELETE CASCADE,
+--   timestamp  TIMESTAMP DEFAULT NOW()
+-- );
