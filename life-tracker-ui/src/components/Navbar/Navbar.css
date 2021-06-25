@@ -98,13 +98,15 @@
   width: 27em;
 }
 .btn {
-  color: green;
-  font-size: 20px;
-  background: var(--deep-blue);
-}
-
-.btn.outline {
-  background: white;
-  color: var(--deep-blue);
-  border: solid 1px var(--deep-blue);
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
 }

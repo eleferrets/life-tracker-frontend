@@ -21,16 +21,17 @@
   } */
   .Intro h2, h1 {
     font-weight: bolder;
-    color: black;
+    color: #333;
   }
   .Intro img {
     align-self: flex-end;
   }
   .Content {
-    max-width: 300px;
+    max-width: 250px;
   }
   .image img {
     width: 25em;
     height: auto;
     border-radius: 30%;
+    padding-left: 2em;
   }
