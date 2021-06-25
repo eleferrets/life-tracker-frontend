@@ -94,6 +94,21 @@
 .links ul li a {
   color: rgb(71, 141, 168) !important;
 }
-.content {
+.contents {
+  width: 27em;
+}
+button:active,
+.btn:active {
+  transform: translateY(1px);
+}
+.btn {
+  color: green;
+  font-size: 20px;
+  background: var(--deep-blue);
 }
 
+.btn.outline {
+  background: white;
+  color: var(--deep-blue);
+  border: solid 1px var(--deep-blue);
+}

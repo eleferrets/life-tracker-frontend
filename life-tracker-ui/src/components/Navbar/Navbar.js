@@ -16,37 +16,35 @@ export default function Navbar(filterInputValue, handleOnInputChange) {
         />
       </div> */}
 
-      <div className="content">
+      <div className="contents">
         {/* <div className="space"> </div> */}
         <div className="links">
           <ul>
-          <li>
-          <NavLink to="/activity">Activity</NavLink>
-        </li>
-        <li>
-          <NavLink to="/exercise">Exercise</NavLink>
-        </li>
-        <li>
-          <NavLink to="/nutrition">Nutrition</NavLink>
-        </li>
-        <li>
-          <NavLink to="/sleep">Sleep</NavLink>
-        </li>
+            <li>
+              <NavLink to="/activity">Activity</NavLink>
+            </li>
+            <li>
+              <NavLink to="/exercise">Exercise</NavLink>
+            </li>
+            <li>
+              <NavLink to="/nutrition">Nutrition</NavLink>
+            </li>
+            <li>
+              <NavLink to="/sleep">Sleep</NavLink>
+            </li>
           </ul>
-          
-          </div>
-  
+        </div>
       </div>
       {/* If we are logged in, render the logout, otherwise use the normal buttons */}
-      {/* <div className="btns-normal">
-      <Link to="/register">
-            <button className="btn primary">Register</button>
-          </Link>
-          <Link to="/login">
-            <button className="btn secondary">Login</button>
-          </Link>
-          </div>
-          <div className="btn-logout"></div> */}
+      <div className="btns-normal">
+        <Link to="/register">
+          <button className="btn primary">Register</button>
+        </Link>
+        <Link to="/login">
+          <button className="btn secondary">Login</button>
+        </Link>
+      </div>
+      <div className="btn-logout"></div>
     </nav>
   );
 }
