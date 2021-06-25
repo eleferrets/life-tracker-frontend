@@ -97,10 +97,6 @@
 .contents {
   width: 27em;
 }
-button:active,
-.btn:active {
-  transform: translateY(1px);
-}
 .btn {
   color: green;
   font-size: 20px;
