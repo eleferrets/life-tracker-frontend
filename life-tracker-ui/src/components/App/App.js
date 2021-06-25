@@ -71,7 +71,7 @@ export default function App() {
         <Navbar filterInputValue={filterInputValue} handleOnInputChange={handleOnInputChange} />
         
         <Routes>
-           <Route path="/login" element={<Login user={user} setUser={setUser} />} />
+          <Route path="/login" element={<Login user={user} setUser={setUser} />} />
           <Route path="/register" element={<Register user={user} setUser={setUser} />} />
           <Route path="/" element={<Home products={products} />}></Route>
           <Route
