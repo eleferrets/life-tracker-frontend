@@ -13,6 +13,7 @@
 }
 .Categories button {
   border: none;
+  background-color: whitesmoke
 }
 .Categories {
   display: flex;
@@ -21,6 +22,9 @@
 }
 .Categories div h3 {
   text-align: center;
+}
+.Categories .image img {
+  height: 15em;
 }
 .image img {
   width: 25em;
