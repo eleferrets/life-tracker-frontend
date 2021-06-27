@@ -7,7 +7,7 @@ import exercise from "../../assets/exercise.png"
 import nutrition from "../../assets/nutrition.jpg"
 import sleep from "../../assets/sleep.png"
 
-export default function StoreActivity({ products = [] }) {
+export default function StoreActivity() {
   return (
     <div className="StoreActivity">
        <h2>Resources</h2>

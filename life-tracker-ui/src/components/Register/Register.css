@@ -150,8 +150,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--deep-blue);
-  border: none;
+  background: black;
   cursor: pointer;
   margin-top: 15px;
 }

@@ -1,10 +1,34 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import FilterInput from "../FilterInput/FilterInput";
 import codepath from "../../assets/codepath.svg";
 import "./Navbar.css";
 
-export default function Navbar(filterInputValue, handleOnInputChange) {
+export default function Navbar(filterInputValue, handleOnInputChange, user, setUser) {
+  const navigate = useNavigate()
+  const handleOnLogout = () => {
+    navigate("/")
+  }
+  const isAuthenticated = Boolean(user?.email)
+  const buttons = isAuthenticated ? (
+    <>
+  <div className="btns-normal">
+        <Link to="/register">
+          <button className="btn primary">Register</button>
+        </Link>
+        <Link to="/login">
+          <button className="btn secondary">Login</button>
+        </Link>
+      </div>
+      </> ) : (
+        <>
+      <div className="btn-logout">
+        
+          <button className="btn primary" onClick={handleOnLogout}>Logout</button>
+        </div>
+      </>
+      )
   return (
+    
     <nav className="Navbar">
       <Link className="logo" to="/">
         <img src={codepath} alt="logo" />
@@ -36,15 +60,7 @@ export default function Navbar(filterInputValue, handleOnInputChange) {
         </div>
       </div>
       {/* If we are logged in, render the logout, otherwise use the normal buttons */}
-      <div className="btns-normal">
-        <Link to="/register">
-          <button className="btn primary">Register</button>
-        </Link>
-        <Link to="/login">
-          <button className="btn secondary">Login</button>
-        </Link>
-      </div>
-      <div className="btn-logout"></div>
+      <div className="buttons">{buttons}</div>
     </nav>
   );
 }

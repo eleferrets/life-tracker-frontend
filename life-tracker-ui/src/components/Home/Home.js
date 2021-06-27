@@ -5,13 +5,13 @@ import Intro from "../Intro/Intro";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
-export default function Home( products ) {
+export default function Home() {
   return (
     <div className="Home">
       <Intro />
       {/* <AddProduct /> */}
       {/* {console.log("Hi",products)} */}
-      <StoreActivity products={products.products} />
+      <StoreActivity />
     </div>
   );
 }

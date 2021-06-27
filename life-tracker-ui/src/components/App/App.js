@@ -17,7 +17,7 @@ export default function App() {
   const [products, setProducts] = useState([]);
   const [user, setUser] = useState({})
 
-
+  const [appState, setAppState] = useState({})
   const AddProduct = (newProduct) => {
     setProducts(t => [...t, newProduct])
   }
@@ -50,11 +50,11 @@ export default function App() {
         // //const transferData = transferRes.data;
         // const transfers = transferRes?.data?.transfers;
         // setTransfers(transfers);
-        const res = await axios.get(
-          "http://localhost:3001/store/products"
-        );
+        // const res = await axios.get(
+        //   "http://localhost:3001/store/products"
+        // );
        // const transactionData = res.data;
-        const products = res?.data?.products;
+        // const products = res?.data?.products;
         //console.log(products)
         setProducts(products);
       } catch (err) {
@@ -68,12 +68,12 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar filterInputValue={filterInputValue} handleOnInputChange={handleOnInputChange} />
+        <Navbar filterInputValue={filterInputValue} handleOnInputChange={handleOnInputChange} user={user} setUser={setUser} />
         
         <Routes>
           <Route path="/login" element={<Login user={user} setUser={setUser} />} />
           <Route path="/register" element={<Register user={user} setUser={setUser} />} />
-          <Route path="/" element={<Home products={products} />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route
             path="/products/:productId"
             element={<ProductDetail />}

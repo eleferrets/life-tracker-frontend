@@ -82,7 +82,7 @@
   font-weight: bolder;
 }
 .links ul {
-  width: 17em;
+  width: 26em;
   display: flex;
   flex-direction: row;
   text-decoration: none;
@@ -109,4 +109,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+}
+.btns-normal {
+  display: flex;
 }
