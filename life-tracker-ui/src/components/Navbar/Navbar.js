@@ -3,15 +3,28 @@ import FilterInput from "../FilterInput/FilterInput";
 import codepath from "../../assets/codepath.svg";
 import "./Navbar.css";
 
-export default function Navbar(filterInputValue, handleOnInputChange, user, setUser) {
-  const navigate = useNavigate()
-  const handleOnLogout = () => {
-    navigate("/")
-  }
-  const isAuthenticated = Boolean(user?.email)
+export default function Navbar({
+  filterInputValue,
+  handleOnInputChange,
+  user,
+  setUser,
+  handleOnLogout,
+}) {
+  // const navigate = useNavigate()
+  //  console.log(user)
+  const isAuthenticated = Boolean(user?.email);
+  //  console.log(isAuthenticated)
   const buttons = isAuthenticated ? (
     <>
-  <div className="btns-normal">
+      <div className="btn-logout">
+        <button className="btn primary" onClick={handleOnLogout}>
+          Logout
+        </button>
+      </div>
+    </>
+  ) : (
+    <>
+      <div className="btns-normal">
         <Link to="/register">
           <button className="btn primary">Register</button>
         </Link>
@@ -19,16 +32,9 @@ export default function Navbar(filterInputValue, handleOnInputChange, user, setU
           <button className="btn secondary">Login</button>
         </Link>
       </div>
-      </> ) : (
-        <>
-      <div className="btn-logout">
-        
-          <button className="btn primary" onClick={handleOnLogout}>Logout</button>
-        </div>
-      </>
-      )
+    </>
+  );
   return (
-    
     <nav className="Navbar">
       <Link className="logo" to="/">
         <img src={codepath} alt="logo" />

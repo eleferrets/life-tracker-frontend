@@ -7,6 +7,7 @@ export default function Login({ user, setUser }) {
   const navigate = useNavigate()
   const [isProcessing, setIsProcessing] = useState(false)
   const [errors, setErrors] = useState({})
+  const [showPassword, setShowPassword] = useState(false)
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -92,7 +93,7 @@ export default function Login({ user, setUser }) {
 
         <div className="footer">
           <p>
-            Don't have an account? Sign up <Link to="/signup">here</Link>
+            Don't have an account? Sign up <Link to="/register">here</Link>
           </p>
         </div>
       </div>

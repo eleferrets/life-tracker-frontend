@@ -207,3 +207,6 @@ const Arrow = ({ amount }) => {
 .StoreActivity .table .table-row .col.x4 {
   flex: 4;
 } */
+
+      {/* <AddProduct /> */}
+      {/* {console.log("Hi",products)} */}

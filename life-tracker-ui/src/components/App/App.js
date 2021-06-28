@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import apiClient from "../../services/apiClient";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
@@ -8,6 +8,10 @@ import Login from "../Login/Login"
 import "./App.css";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import AddProduct from "../AddProduct/AddProduct";
+import Activity from "../Activity/Activity";
+import Exercise from "../Exercise/Exercise";
+import Nutrition from "../Nutrition/Nutrition";
+import Sleep from "../Sleep/Sleep";
 
 export default function App() {
   //const [posts, setPosts] = useState([])
@@ -16,7 +20,7 @@ export default function App() {
   const [filterInputValue, setInputValue] = useState(null);
   const [products, setProducts] = useState([]);
   const [user, setUser] = useState({})
-
+// console.log("here",user)
   const [appState, setAppState] = useState({})
   const AddProduct = (newProduct) => {
     setProducts(t => [...t, newProduct])
@@ -24,9 +28,12 @@ export default function App() {
   const handleOnInputChange = async (evt) => {
     setInputValue();
   };
-
+// const {data, error} = await apiClient.listPosts()
+// if (data) setPosts(data.posts)
+// if (error) setError(error)
   // Every time the site or inside the array rendered
   // It will run only once as there is nothing in the array
+  // Fetch products
   useEffect(() => {
     const fetchProducts = async () => {
       //   try {
@@ -65,19 +72,42 @@ export default function App() {
     };
     fetchProducts();
   }, []);
+// Fetch users
+useEffect(() => {
+  const fetchUser = async () => {
+  const {data, error} = await apiClient.fetchUserFromToken()
+if (data) setUser(data.user)
+if (error) setError(error)
+  }
+  const token = localStorage.getItem("rate_my_setup_token")
+  if (token) {
+    apiClient.setToken(token)
+    fetchUser()
+  }
+}, [])
+const handleOnLogout = async () => {
+  console.log("logged out")
+  await apiClient.logoutUser()
+  setUser({})
+  setError(null)
+}
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar filterInputValue={filterInputValue} handleOnInputChange={handleOnInputChange} user={user} setUser={setUser} />
+        <Navbar filterInputValue={filterInputValue} handleOnInputChange={handleOnInputChange} user={user} setUser={setUser} handleOnLogout={handleOnLogout} />
         
         <Routes>
           <Route path="/login" element={<Login user={user} setUser={setUser} />} />
           <Route path="/register" element={<Register user={user} setUser={setUser} />} />
-          <Route path="/" element={<Home />}></Route>
-          <Route
+          <Route path="/" element={<Home user={user} />}></Route>
+          <Route path="/activity" element={<Activity user={user} />}></Route>
+          <Route path="/exercise" element={<Exercise user={user} />}></Route>
+          <Route path="/nutrition" element={<Nutrition user={user} />}></Route>
+          <Route path="/sleep" element={<Sleep user={user} />}></Route>
+          {/* <Route
             path="/products/:productId"
             element={<ProductDetail />}
-          ></Route>
+          ></Route> */}
         </Routes>
         
         {/* <Link to="/"></Link> */}

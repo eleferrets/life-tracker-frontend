@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bright-green);
+  background: black;
   border: none;
   cursor: pointer;
   margin-top: 15px;
