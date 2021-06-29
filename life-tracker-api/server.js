@@ -4,7 +4,6 @@ const morgan = require("morgan");
 const { PORT } = require("./config");
 const { NotFoundError } = require("./utils/errors");
 const authRoutes = require("./routes/auth");
-const storeRoutes = require("./routes/store");
 const exerciseRoutes = require("./routes/exercises");
 const security = require("./middleware/security");
 
@@ -24,7 +23,6 @@ app.use(morgan("tiny"));
 app.use(security.extractUserFromJwt);
 // Use routes after middleware
 app.use("/auth", authRoutes);
-app.use("/store", storeRoutes);
 app.use("/exercise", exerciseRoutes);
 
 /** Handle 404 errors -- this matches everything */

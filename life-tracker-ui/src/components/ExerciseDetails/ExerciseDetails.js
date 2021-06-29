@@ -13,8 +13,8 @@ export default function ExerciseDetails({user}) {
       setFetching(true);
       try {
         //   console.log(user)
-        const {data} = await apiClient.listExercises()
-        console.log(data.exercises)
+        const {data} = await apiClient.listExercises(user)
+        //console.log(data.exercises)
         setExercises(data.exercises);
       } catch (err) {
         setError(err);
@@ -28,7 +28,10 @@ export default function ExerciseDetails({user}) {
     <div className="ExerciseDetails">
     {   exercises.map((exercise) => (
     <div className="card" key={exercise.id}>
-        <p>{exercise.name}</p>
+        <span><p>{exercise.name}</p></span>
+        <span><p>{"Category: "+exercise.category}</p></span>
+        <span><p>{"Duration: "+exercise.duration+" mins"}</p></span>
+        <span><p>{"Intensity: "+exercise.intensity+"/10"}</p></span>
     </div>
   ))}
     </div>

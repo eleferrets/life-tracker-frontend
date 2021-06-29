@@ -1,18 +1,16 @@
 const express = require("express");
-const Exercise = require("../models/exercise");
+const Nutrition = require("../models/exercise");
 const security = require("../middleware/security");
 const router = express.Router();
 
 router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
-    // Create a new exercise
-    // Call the createExercise method
     const { user } = res.locals;
-    const exercise = await Exercise.createExercise({
+    const nutrition = await Nutrition.createNutrition({
       user,
-      exercise: req.body,
+      nutrition: req.body,
     });
-    return res.status(201).json({ exercise });
+    return res.status(201).json({ nutrition });
   } catch (err) {
     next(err);
   }
@@ -20,12 +18,10 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
 
 router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
-    // List all exercises
-    // call the listExercisesForUser from the Exercise model
     const { user } = res.locals;
     console.log(user)
-    const exercises = await Exercise.listExercisesForUser({user});
-    return res.status(200).json({ exercises });
+    const nutritions = await Nutrition.listNutritionsForUser({user});
+    return res.status(200).json({ nutritions });
   } catch (err) {
     next(err);
   }

@@ -5,3 +5,16 @@
     flex-direction: column;
     flex-wrap: wrap;  
 }
+.card {
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column nowrap;
+    padding: 1em;
+    margin: 1em;
+}
+.card p {
+max-width: 200px;
+    word-wrap: break-word;
+    }
