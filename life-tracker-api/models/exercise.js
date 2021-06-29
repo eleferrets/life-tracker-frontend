@@ -5,7 +5,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 class Exercise {
   static async listExercisesForUser() {
     // return all exercises that the authenticated user has created
-    console.log("Here")
+    //console.log("Here")
     // const results = await db.query(
     //   `
     //         SELECT e.id AS "exerciseId",
@@ -29,7 +29,7 @@ class Exercise {
     JOIN users AS u ON u.id = e.user_id
 
     `);
-console.log("there")
+//console.log("there")
     return results.rows;
   }
   static async createExercise({ exercise, user }) {

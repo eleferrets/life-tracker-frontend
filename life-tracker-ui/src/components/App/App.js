@@ -87,7 +87,7 @@ if (error) setError(error)
   }
 }, [])
 const handleOnLogout = async () => {
-  console.log("logged out")
+  //console.log("logged out")
   await apiClient.logoutUser()
   setUser({})
   setError(null)
