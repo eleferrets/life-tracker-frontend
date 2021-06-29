@@ -120,6 +120,16 @@ CREATE TABLE ratings (
     </div>
   );
 }
+  const arrex = exercises
+  if (arrex != undefined) {
+  arrex.map((exercise) => (
+    <div className="" key={exercise.id}>
+      <span className="">
+        {exercise.name}
+      </span>
+    </div>
+  ))}
+  // arrex.map()
 
 const Arrow = ({ amount }) => {
   return (
@@ -210,3 +220,16 @@ const Arrow = ({ amount }) => {
 
       {/* <AddProduct /> */}
       {/* {console.log("Hi",products)} */}
+
+      //   try {
+      //     // attaches data to res.data
+      //     const res = await axios.get("http://localhost:3001/bank")
+      //     const data = res.data
+      //     // Optional chain operator for if statements
+      //     // This is the same thing as if data, then set posts
+      //     const posts = res?.data?.posts
+      //   }
+      //   catch(err) {
+      //     console.log({err})
+      //   }
+      // }

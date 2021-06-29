@@ -2,8 +2,8 @@ const express = require("express");
 const User = require("../models/user");
 const { createUserJwt } = require("../utils/tokens");
 const security = require("../middleware/security");
-const Order = require("../models/order");
-const { listOrdersForUser } = require("../models/order");
+const Order = require("../models/exercise");
+const { listOrdersForUser } = require("../models/exercise");
 const router = express.Router();
 
 router.post("/login", async (req, res, next) => {

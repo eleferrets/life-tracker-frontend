@@ -12,6 +12,7 @@ import Activity from "../Activity/Activity";
 import Exercise from "../Exercise/Exercise";
 import Nutrition from "../Nutrition/Nutrition";
 import Sleep from "../Sleep/Sleep";
+import CreateExercise from "../CreateExercise/CreateExercise";
 
 export default function App() {
   //const [posts, setPosts] = useState([])
@@ -104,6 +105,7 @@ const handleOnLogout = async () => {
           <Route path="/exercise" element={<Exercise user={user} />}></Route>
           <Route path="/nutrition" element={<Nutrition user={user} />}></Route>
           <Route path="/sleep" element={<Sleep user={user} />}></Route>
+          <Route path="/newexercise" element={<CreateExercise user={user} />}></Route>
           {/* <Route
             path="/products/:productId"
             element={<ProductDetail />}

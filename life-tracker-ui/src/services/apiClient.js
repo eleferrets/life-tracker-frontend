@@ -34,6 +34,12 @@ class ApiClient {
     async listPosts() {
         return await this.request({endpoint: `posts`, method: `GET`})
     }
+    async listExercises() {
+        return await this.request({endpoint: `exercise`, method: `GET`})
+    }
+    async createExercise(exercise) {
+        return await this.request({endpoint: `exercise`, method: `POST`, data: exercise})
+    }
     async fetchUserFromToken() {
         return await this.request({endpoint: `auth/me`, method: `GET`})
     }
