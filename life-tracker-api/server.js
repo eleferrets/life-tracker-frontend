@@ -21,7 +21,7 @@ app.use(morgan("tiny"));
 // in the authorization header
 // if it does, attach the decoded user to res.locals
 app.use(security.extractUserFromJwt);
-// Use routes after middleware
+// Use routes after middleware 
 app.use("/auth", authRoutes);
 app.use("/exercise", exerciseRoutes);
 
