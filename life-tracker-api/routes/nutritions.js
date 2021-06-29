@@ -1,5 +1,5 @@
 const express = require("express");
-const Nutrition = require("../models/exercise");
+const Nutrition = require("../models/nutrition");
 const security = require("../middleware/security");
 const router = express.Router();
 
