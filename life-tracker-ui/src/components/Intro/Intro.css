@@ -27,7 +27,8 @@
     align-self: flex-end;
   }
   .Content {
-    max-width: 250px;
+    max-width: 400px;
+    font-size: 1.25em;
   }
   .image img {
     width: 25em;

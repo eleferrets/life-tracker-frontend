@@ -526,3 +526,53 @@ export default function ProductItem() {
 }
 
 // console.log(user)
+
+// const {data, error} = await apiClient.listPosts()
+// if (data) setPosts(data.posts)
+// if (error) setError(error)
+  // Every time the site or inside the array rendered
+  // It will run only once as there is nothing in the array
+  // Fetch products
+  useEffect(() => {
+    const fetchProducts = async () => {
+      //   try {
+      //     // attaches data to res.data
+      //     const res = await axios.get("http://localhost:3001/bank")
+      //     const data = res.data
+      //     // Optional chain operator for if statements
+      //     // This is the same thing as if data, then set posts
+      //     const posts = res?.data?.posts
+      //   }
+      //   catch(err) {
+      //     console.log({err})
+      //   }
+      // }
+
+      setFetching(true);
+      try {
+        // const transferRes = await axios.get(
+        //   "http://localhost:3001/bank/transfers"
+        // );
+        // //const transferData = transferRes.data;
+        // const transfers = transferRes?.data?.transfers;
+        // setTransfers(transfers);
+        // const res = await axios.get(
+        //   "http://localhost:3001/store/products"
+        // );
+       // const transactionData = res.data;
+        // const products = res?.data?.products;
+        //console.log(products)
+        setProducts(products);
+      } catch (err) {
+        setError(err);
+      }
+
+      setFetching(false);
+    };
+    fetchProducts();
+  }, []);
+
+    const AddProduct = (newProduct) => {
+    setProducts((t) => [...t, newProduct]);
+  };
+    const [products, setProducts] = useState([]);
