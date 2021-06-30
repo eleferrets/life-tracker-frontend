@@ -3,7 +3,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Activity {
   static async listActivitiesForUser({ user }) {
-    console.log(user);
+    // console.log(user);
     
     const results = await db.query(
       `
@@ -31,7 +31,7 @@ class Activity {
     if (!user) {
       throw new BadRequestError("No user provided");
     }
-    console.log("here")
+    // console.log("here")
     const results = await db.query(
       `
             INSERT INTO activity (activity_type, user_id)
@@ -46,7 +46,7 @@ class Activity {
         user.email,
       ]
     );
-    console.log("there")
+    // console.log("there")
     return results.rows[0];
   }
 }

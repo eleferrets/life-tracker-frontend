@@ -3,7 +3,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Nutrition {
   static async listNutritionsForUser({ user }) {
-    console.log(user);
+    // console.log(user);
     const results = await db.query(
       `
     SELECT n.id AS "nutritionId",

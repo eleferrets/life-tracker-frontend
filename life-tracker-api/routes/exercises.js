@@ -23,7 +23,7 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
     // List all exercises
     // call the listExercisesForUser from the Exercise model
     const { user } = res.locals;
-    console.log(user)
+    // console.log(user)
     const exercises = await Exercise.listExercisesForUser({user});
     return res.status(200).json({ exercises });
   } catch (err) {

@@ -18,7 +18,7 @@ export default function Navbar({
     <>
       <div className="btn-logout">
         <button className="btn primary" onClick={handleOnLogout}>
-          Logout
+          Sign out
         </button>
       </div>
     </>
@@ -29,7 +29,7 @@ export default function Navbar({
           <button className="btn primary">Register</button>
         </Link>
         <Link to="/login">
-          <button className="btn secondary">Login</button>
+          <button className="btn secondary">Sign in</button>
         </Link>
       </div>
     </>

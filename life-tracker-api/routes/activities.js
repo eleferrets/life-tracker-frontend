@@ -19,7 +19,7 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
 router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
     const { user } = res.locals;
-    console.log(user)
+    // console.log(user)
     const activities = await Activity.listActivitiesForUser({user});
     return res.status(200).json({ activities });
   } catch (err) {

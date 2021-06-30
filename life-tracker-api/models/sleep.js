@@ -3,7 +3,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Sleep {
   static async listSleepsForUser({ user }) {
-    console.log(user);
+    // console.log(user);
     const results = await db.query(
       `
     SELECT s.id AS "sleepId",

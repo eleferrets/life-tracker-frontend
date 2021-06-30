@@ -334,3 +334,195 @@ class Store {
 }
 
 module.exports = Store;
+
+
+import { formatAmount, formatDate } from "../../utils/format";
+import "./ProductDetail.css" ;
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import axios from "axios";
+/*
+ - Fragment tags as return only returns one thing<> </>*/
+export default function ProductDetail() {
+  const { productId } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
+  const [product, setProduct] = useState([]);
+  const [error, setError] = useState(false);
+  useEffect(() => {
+    const fetchProductById = async () => {
+      setIsLoading(true);
+      try {
+        const res = await axios.get(
+          `http://localhost:3001/store/products/${productId}`
+        );
+        //console.log(res)
+        if (res?.data?.products) setProduct(res.data.products);
+      } catch (err) {
+        setError(err);
+      }
+
+      setIsLoading(false);
+    };
+    fetchProductById();
+  }, [productId]);
+  const renderProductContent = () => {
+    if (isLoading) return <h1>Loading...</h1>;
+    if (error) return <p className="description">No product found</p>;
+
+    return (
+      <>
+      <p className="name">{product?.name}</p>
+      <img className="image" src={product?.image} alt={"Gif of " + product?.name}></img>
+        <p className="description">{product?.description}</p>
+        <div className="meta">
+          <p className={`price`}>
+            {"$"+product?.price}
+          </p>
+          {/* <p className="date">{formatDate(product?.postedAt)}</p> */}
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <div className="ProductDetail">
+      <div className="card">
+        <div className="title">
+          <h3>Product #{productId}</h3>
+          <p className="category">{product?.category}</p>
+        </div>
+
+        {renderProductContent()}
+      </div>
+    </div>
+  );
+}
+
+.ProductDetail {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProductDetail .card {
+  border: 1px solid rgba(255, 196, 1, 0.3);
+  background: #333;
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  max-width: 600px;
+  width: 100%;
+}
+.ProductDetail .card .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+}
+.ProductDetail .card .title h3 {
+  font-size: 30px;
+  color: white;
+}
+.ProductDetail .card .description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+}
+.ProductDetail .card .image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 200px;
+  border-radius: 15px;
+}
+.ProductDetail .card .name {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: white;
+}
+.ProductDetail .card .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+}
+.ProductDetail .card .price {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(44, 65, 71, 1);
+  color: white;
+}
+.ProductDetail .card .price.minus {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(244, 65, 71, 1);
+  color: white;
+}
+
+.ProductItem {
+    height: 350px;
+    width: 20em;
+    /* max-width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 60px;
+    background: #0b241b;
+  }
+
+  h1 {
+    color: white;
+  }
+ 
+  .ProductItem .avatar img {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    transform: translateY(1px) translateX(1px);
+  }
+  .ProductItem p {
+    font-weight: 600;
+    color: rgb(162, 250, 231);
+  }
+  .ProductItem h2 {
+    font-weight: bolder;
+    color: whitesmoke;
+  }
+  
+  import { Link } from "react-router-dom";
+import "./ProductItem.css";
+
+export default function ProductItem() {
+  return (
+    <div className="ProductItem">
+      <h2>Hello There!</h2>
+      <h2>Find Your Groceries Here!</h2>
+      <p>
+        We have all kinds of groceries! Click on any of the items to learn more
+        about each of them!
+      </p>
+    </div>
+  );
+}
+
+// console.log(user)

@@ -191,7 +191,7 @@ export default function CreateExercise({ user, setUser }) {
             disabled={isProcessing}
             onClick={handleOnSubmit}
           >
-            {isProcessing ? "Loading..." : "Create Exercise"}
+            {isProcessing ? "Loading..." : "Save"}
           </button>
         </div>
 

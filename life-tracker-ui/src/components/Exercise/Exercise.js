@@ -11,7 +11,7 @@ export default function Exercise({user}) {
       <BannerE />
       <div className="content">
       <Link to="/newexercise">
-          <button className="btn primary">Create New Exercise</button>
+          <button className="btn primary">Record Exercise</button>
       </Link>
       <ExerciseDetails user={user}/>
       </div>

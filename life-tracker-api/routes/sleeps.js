@@ -19,7 +19,7 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
 router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
     const { user } = res.locals;
-    console.log(user)
+    // console.log(user)
     const sleeps = await Sleep.listSleepsForUser({user});
     return res.status(200).json({ sleeps });
   } catch (err) {

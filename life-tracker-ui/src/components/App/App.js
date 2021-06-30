@@ -6,13 +6,14 @@ import Home from "../Home/Home";
 import Register from "../Register/Register"
 import Login from "../Login/Login"
 import "./App.css";
-import ProductDetail from "../ProductDetail/ProductDetail";
+// import ProductDetail from "../ProductDetail/ProductDetail";
 import AddProduct from "../AddProduct/AddProduct";
 import Activity from "../Activity/Activity";
 import Exercise from "../Exercise/Exercise";
 import Nutrition from "../Nutrition/Nutrition";
 import Sleep from "../Sleep/Sleep";
 import CreateExercise from "../CreateExercise/CreateExercise";
+import Dashboard from "../Dashboard/Dashboard";
 
 export default function App() {
   //const [posts, setPosts] = useState([])
@@ -106,6 +107,8 @@ const handleOnLogout = async () => {
           <Route path="/nutrition" element={<Nutrition user={user} />}></Route>
           <Route path="/sleep" element={<Sleep user={user} />}></Route>
           <Route path="/newexercise" element={<CreateExercise user={user} />}></Route>
+          <Route path="/details" element={<Dashboard user={user} />}></Route>
+          
           {/* <Route
             path="/products/:productId"
             element={<ProductDetail />}
