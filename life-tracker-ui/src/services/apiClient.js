@@ -31,14 +31,32 @@ class ApiClient {
             return {data: null, error: message || String(error)}
         }
     }
-    async listPosts() {
-        return await this.request({endpoint: `posts`, method: `GET`})
-    }
+    // async listPosts() {
+    //     return await this.request({endpoint: `posts`, method: `GET`})
+    // }
     async listExercises(user) {
         return await this.request({endpoint: `exercise`, method: `GET`, data: user})
     }
     async createExercise(exercise) {
         return await this.request({endpoint: `exercise`, method: `POST`, data: exercise})
+    }
+    async listNutritions(user) {
+        return await this.request({endpoint: `nutrition`, method: `GET`, data: user})
+    }
+    async createNutrition(nutrition) {
+        return await this.request({endpoint: `nutrition`, method: `POST`, data: nutrition})
+    }
+    async listSleeps(user) {
+        return await this.request({endpoint: `sleep`, method: `GET`, data: user})
+    }
+    async createSleep(sleep) {
+        return await this.request({endpoint: `sleep`, method: `POST`, data: sleep})
+    }
+    async listActivities(user) {
+        return await this.request({endpoint: `activity`, method: `GET`, data: user})
+    }
+    async createActivity(activity) {
+        return await this.request({endpoint: `activity`, method: `POST`, data: activity})
     }
     async fetchUserFromToken() {
         return await this.request({endpoint: `auth/me`, method: `GET`})

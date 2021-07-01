@@ -3,15 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 // import "./Register.css";
 
-export default function CreateExercise({ user, setUser }) {
+export default function CreateActivity({ user, setUser }) {
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-    name: "",
-    category: "",
-    duration: "",
-    intensity: "",
+    activity_type: "",
   });
 
 //   useEffect(() => {
@@ -56,11 +53,8 @@ export default function CreateExercise({ user, setUser }) {
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
-    const { data, error } = await apiClient.createExercise({
-      name: form.name,
-      category: form.category,
-      duration: Number(form.duration),
-      intensity: Number(form.intensity),
+    const { data, error } = await apiClient.createActivity({
+      activity_type: form.activity_type,
     });
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
@@ -68,7 +62,7 @@ export default function CreateExercise({ user, setUser }) {
       // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
     //   setUser(data.user);
     //   apiClient.setToken(data.token);
-    navigate("/exercise")
+    navigate("/activity")
     }
     setIsProcessing(false);
 
@@ -97,26 +91,26 @@ export default function CreateExercise({ user, setUser }) {
   return (
     <div className="Register">
       <div className="card">
-        <h2>New Exercise</h2>
+        <h2>New Activity</h2>
 
         {errors.form && <span className="error">{errors.form}</span>}
         <br />
 
         <div className="form">
           <div className="input-field">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Activity Type</label>
             <input
               type="text"
               name="name"
-              placeholder="Enter the exercise name"
-              value={form.name}
+              placeholder="Enter the activity type"
+              value={form.activity_type}
               onChange={handleOnInputChange}
             />
-            {errors.name && (
-              <span className="error">{errors.name}</span>
+            {errors.activity_type && (
+              <span className="error">{errors.activity_type}</span>
             )}
           </div>
-          <div className="input-field">
+          {/* <div className="input-field">
             <label htmlFor="category">Category</label>
             <input
               type="text"
@@ -126,8 +120,8 @@ export default function CreateExercise({ user, setUser }) {
               onChange={handleOnInputChange}
             />
             {errors.category && <span className="error">{errors.category}</span>}
-          </div>
-          <div className="split-inputs">
+          </div> */}
+          {/* <div className="split-inputs">
             <div className="input-field">
               <label htmlFor="name">Duration In Minutes</label>
               <input
@@ -154,7 +148,7 @@ export default function CreateExercise({ user, setUser }) {
                 <span className="error">{errors.intensity}</span>
               )}
             </div>
-          </div>
+          </div> */}
 
           
 

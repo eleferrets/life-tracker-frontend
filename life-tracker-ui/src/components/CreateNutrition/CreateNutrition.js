@@ -10,8 +10,9 @@ export default function CreateExercise({ user, setUser }) {
   const [form, setForm] = useState({
     name: "",
     category: "",
-    duration: "",
-    intensity: "",
+    quantity: "",
+    calories: "",
+    image_url: "",
   });
 
 //   useEffect(() => {
@@ -59,8 +60,9 @@ export default function CreateExercise({ user, setUser }) {
     const { data, error } = await apiClient.createExercise({
       name: form.name,
       category: form.category,
-      duration: Number(form.duration),
-      intensity: Number(form.intensity),
+      quantity: Number(form.quantity),
+      calories: Number(form.calories),
+      image_url: form.image_url
     });
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
@@ -129,31 +131,42 @@ export default function CreateExercise({ user, setUser }) {
           </div>
           <div className="split-inputs">
             <div className="input-field">
-              <label htmlFor="name">Duration In Minutes</label>
+              <label htmlFor="name">Quantity</label>
               <input
                 type="number"
-                name="duration"
+                name="quantity"
                 min="1"
-                value={form.duration}
+                value={form.quantity}
                 onChange={handleOnInputChange}
               />
-              {errors.duration && (
-                <span className="error">{errors.duration}</span>
+              {errors.quantity && (
+                <span className="error">{errors.quantity}</span>
               )}
             </div>
             <div className="input-field">
-              <label htmlFor="name">Intensity</label>
+              <label htmlFor="name">Calories</label>
               <input
                 type="number"
-                name="intensity"
-                max="10" min="0"
-                value={form.intensity}
+                name="calories"
+                min="0"
+                value={form.calories}
                 onChange={handleOnInputChange}
               />
-              {errors.intensity && (
-                <span className="error">{errors.intensity}</span>
+              {errors.calories && (
+                <span className="error">{errors.calories}</span>
               )}
             </div>
+          </div>
+          <div className="input-field">
+            <label htmlFor="imageUrl">Image Url</label>
+            <input
+              type="text"
+              name="imageUrl"
+              placeholder="Enter the url of the image"
+              value={form.image_url}
+              onChange={handleOnInputChange}
+            />
+            {errors.image_url && <span className="error">{errors.image_url}</span>}
           </div>
 
           

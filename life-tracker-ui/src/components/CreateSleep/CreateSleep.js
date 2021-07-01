@@ -3,15 +3,13 @@ import { useNavigate, Link } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 // import "./Register.css";
 
-export default function CreateExercise({ user, setUser }) {
+export default function CreateSleep({ user, setUser }) {
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-    name: "",
-    category: "",
-    duration: "",
-    intensity: "",
+    start_time: "",
+    end_time: "",
   });
 
 //   useEffect(() => {
@@ -97,37 +95,37 @@ export default function CreateExercise({ user, setUser }) {
   return (
     <div className="Register">
       <div className="card">
-        <h2>New Exercise</h2>
+        <h2>New Sleep</h2>
 
         {errors.form && <span className="error">{errors.form}</span>}
         <br />
 
         <div className="form">
           <div className="input-field">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Start Time</label>
             <input
-              type="text"
-              name="name"
-              placeholder="Enter the exercise name"
-              value={form.name}
+              type="date"
+              name="startTime"
+              placeholder="Enter the start time"
+              value={form.start_time}
               onChange={handleOnInputChange}
             />
-            {errors.name && (
-              <span className="error">{errors.name}</span>
+            {errors.start_time && (
+              <span className="error">{errors.start_time}</span>
             )}
           </div>
           <div className="input-field">
-            <label htmlFor="category">Category</label>
+            <label htmlFor="category">End Time</label>
             <input
               type="text"
-              name="category"
-              placeholder="Enter the exercise category"
-              value={form.category}
+              name="endTime"
+              placeholder="Enter the end time"
+              value={form.end_time}
               onChange={handleOnInputChange}
             />
-            {errors.category && <span className="error">{errors.category}</span>}
+            {errors.end_time && <span className="error">{errors.end_time}</span>}
           </div>
-          <div className="split-inputs">
+          {/* <div className="split-inputs">
             <div className="input-field">
               <label htmlFor="name">Duration In Minutes</label>
               <input
@@ -154,7 +152,7 @@ export default function CreateExercise({ user, setUser }) {
                 <span className="error">{errors.intensity}</span>
               )}
             </div>
-          </div>
+          </div> */}
 
           
 

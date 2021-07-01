@@ -64,12 +64,12 @@
   margin-top: 15px;
 }
 .Register .card .footer {
-  border-top: solid 1px var(--border-color);
+  /* border-top: solid 1px var(--border-color); */
   margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 35px;
   width: 100%;
 }
 
