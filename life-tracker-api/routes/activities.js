@@ -21,7 +21,7 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
     const { user } = res.locals;
     //  console.log(user)
     const activities = await Activity.listActivitiesForUser({user});
-    console.log(activities)
+    //console.log(activities)
     return res.status(200).json({ activities });
   } catch (err) {
     next(err);

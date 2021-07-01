@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import BannerN from "../Banner/BannerN";
 import Message from "../Message/Message";
 import NutritionDetails from "../NutritionDetails/NutritionDetails";
-// import "./Exercise.css";
+ import "../Exercise/Exercise.css";
 
 export default function Nutrition({user}) {
   const isAuthenticated = Boolean(user?.email);
@@ -11,7 +11,7 @@ export default function Nutrition({user}) {
       <BannerN />
       <div className="content">
       <Link to="/newnutrition">
-          <button className="btn primary">Record Nutrition</button>
+          <button className="btn primary nutrition">Record Nutrition</button>
       </Link>
       <NutritionDetails user={user}/>
       </div>

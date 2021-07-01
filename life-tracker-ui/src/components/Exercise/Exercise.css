@@ -5,6 +5,9 @@
   flex-direction: column;
   flex-wrap: wrap;
 }
+.content button {
+  margin: 10px;
+}
 .content a {
   text-align: center;
 }
@@ -24,4 +27,25 @@
 .card img {
   width: 50px;
   border-radius: 25%;
+}
+.exercise {
+  background-color: whitesmoke;
+  border-color: darkorange;
+  border: auto;
+  border-style: solid;
+  color: rgb(75, 56, 10);
+}
+.sleep {
+  background-color: whitesmoke;
+  border-color: darkorchid;
+  border: auto;
+  border-style: solid;
+  color: rgb(72, 27, 92);
+}
+.nutrition {
+  background-color: whitesmoke;
+  border-color: darkgreen;
+  border: auto;
+  border-style: solid;
+  color: rgb(13, 92, 92);
 }

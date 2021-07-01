@@ -13,13 +13,13 @@ export default function Dashboard({ user }) {
             <button className="btn primary">Activity</button>
           </Link> */}
           <Link to="/exercise">
-            <button className="btn primary">Add Exercise</button>
+            <button className="btn primary exercise">Add Exercise</button>
           </Link>
           <Link to="/nutrition">
-            <button className="btn primary">Record Nutrition</button>
+            <button className="btn primary nutrition">Record Nutrition</button>
           </Link>
           <Link to="/sleep">
-            <button className="btn primary">Add Sleep</button>
+            <button className="btn primary sleep">Add Sleep</button>
           </Link>
         </div>
       </div>

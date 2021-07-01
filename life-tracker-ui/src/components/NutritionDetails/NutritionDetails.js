@@ -14,7 +14,7 @@ export default function NutritionDetails({user}) {
       try {
         //   console.log(user)
         const {data} = await apiClient.listNutritions(user)
-        console.log(data)
+        //console.log(data)
         setNutritions(data.nutritions);
       } catch (err) {
         setError(err);
