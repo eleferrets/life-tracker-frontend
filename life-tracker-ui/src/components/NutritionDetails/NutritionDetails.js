@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import "./Banner.css";
 import apiClient from "../../services/apiClient";
 
 export default function NutritionDetails({ user }) {
   const [isFetching, setFetching] = useState(false);
   const [error, setError] = useState(null);
   const [nutritions, setNutritions] = useState([]);
-  // Fetch products
+  // Fetch nutrition
   useEffect(() => {
     const fetchNutritions = async () => {
       setFetching(true);
       try {
-        //   console.log(user)
         const { data } = await apiClient.listNutritions(user);
-        //console.log(data)
+
         setNutritions(data.nutritions);
       } catch (err) {
         setError(err);

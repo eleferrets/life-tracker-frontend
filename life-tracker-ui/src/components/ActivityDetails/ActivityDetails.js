@@ -3,19 +3,17 @@ import { useState, useEffect } from "react";
 // import "./Banner.css";
 import apiClient from "../../services/apiClient";
 
-export default function ActivityDetails({user}) {
-    const [isFetching, setFetching] = useState(false);
-    const [error, setError] = useState(null);
-    const [activities, setActivities] = useState([]);
-     // Fetch products
+export default function ActivityDetails({ user }) {
+  const [isFetching, setFetching] = useState(false);
+  const [error, setError] = useState(null);
+  const [activities, setActivities] = useState([]);
+  // Fetch products
   useEffect(() => {
     const fetchActivities = async () => {
       setFetching(true);
       try {
-        //   console.log(user)
-        const {data} = await apiClient.listActivities(user)
-        //console.log(data.Activities)
-       // console.log(data)
+        const { data } = await apiClient.listActivities(user);
+
         setActivities(data.activities);
       } catch (err) {
         setError(err);
@@ -27,11 +25,13 @@ export default function ActivityDetails({user}) {
   }, []);
   return (
     <div className="ActivityDetails">
-    {   activities.map((activity) => (
-    <div className="card" key={activity.activityId}>
-        <span><p>{"Activity Type: "+activity.activityType}</p></span>
-    </div>
-  ))}
+      {activities.map((activity) => (
+        <div className="card" key={activity.activityId}>
+          <span>
+            <p>{"Activity Type: " + activity.activityType}</p>
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

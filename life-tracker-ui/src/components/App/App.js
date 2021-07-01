@@ -6,8 +6,6 @@ import Home from "../Home/Home";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import "./App.css";
-// import ProductDetail from "../ProductDetail/ProductDetail";
-import AddProduct from "../AddProduct/AddProduct";
 import Activity from "../Activity/Activity";
 import Exercise from "../Exercise/Exercise";
 import Nutrition from "../Nutrition/Nutrition";
@@ -16,16 +14,12 @@ import CreateExercise from "../CreateExercise/CreateExercise";
 import CreateActivity from "../CreateActivity/CreateActivity";
 import CreateNutrition from "../CreateNutrition/CreateNutrition";
 import CreateSleep from "../CreateSleep/CreateSleep";
-import Dashboard from "../Dashboard/Dashboard";
 
 export default function App() {
-  //const [posts, setPosts] = useState([])
   const [isFetching, setFetching] = useState(false);
   const [error, setError] = useState(null);
   const [filterInputValue, setInputValue] = useState(null);
-
   const [user, setUser] = useState({});
-  // console.log("here",user)
   const [appState, setAppState] = useState({});
 
   const handleOnInputChange = async (evt) => {
@@ -45,7 +39,6 @@ export default function App() {
     }
   }, []);
   const handleOnLogout = async () => {
-    //console.log("logged out")
     await apiClient.logoutUser();
     setUser({});
     setError(null);
@@ -87,15 +80,7 @@ export default function App() {
             path="/newactivity"
             element={<CreateActivity user={user} />}
           ></Route>
-          {/* <Route path="/details" element={<Dashboard user={user} />}></Route> */}
-
-          {/* <Route
-            path="/products/:productId"
-            element={<ProductDetail />}
-          ></Route> */}
         </Routes>
-
-        {/* <Link to="/"></Link> */}
       </BrowserRouter>
     </div>
   );

@@ -10,10 +10,8 @@ export default function Navbar({
   setUser,
   handleOnLogout,
 }) {
-  // const navigate = useNavigate()
-  //  console.log(user)
   const isAuthenticated = Boolean(user?.email);
-  //  console.log(isAuthenticated)
+
   const buttons = isAuthenticated ? (
     <>
       <div className="btn-logout">
@@ -39,15 +37,8 @@ export default function Navbar({
       <Link className="logo" to="/">
         <img src={codepath} alt="logo" />
       </Link>
-      {/* <div className="search">
-        <FilterInput
-          filterInputValue={filterInputValue}
-          handleOnInputChange={handleOnInputChange}
-        />
-      </div> */}
 
       <div className="contents">
-        {/* <div className="space"> </div> */}
         <div className="links">
           <ul>
             <li>

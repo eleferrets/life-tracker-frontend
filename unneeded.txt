@@ -601,3 +601,206 @@ export default function ProductItem() {
     /* padding: 0 60px; */
   /* background: #0b241b; */
     /* max-width: 100vw; */
+              {/* <Route path="/details" element={<Dashboard user={user} />}></Route> */}
+import AddProduct from "../AddProduct/AddProduct";
+import Dashboard from "../Dashboard/Dashboard";
+  //const [posts, setPosts] = useState([])
+    // console.log("here",user)
+     //console.log("logged out")
+          {/* <Route
+            path="/products/:productId"
+            element={<ProductDetail />}
+          ></Route> */}
+                  {/* <Link to="/"></Link> */}
+                  // import ProductDetail from "../ProductDetail/ProductDetail";
+
+
+
+                  // console.log("here");
+                      // console.log("here")
+                         // console.log("there");
+                             // console.log("there")
+                              // console.log(user);
+                              // console.log(user);
+                              // console.log(user)
+                              // console.log(user)
+                              // console.log(user)
+                              // console.log(user);
+                              //  console.log(user)
+                              //console.log(activities)
+                               //   console.log(user)
+                               //console.log(data.Activities)
+       // console.log(data)
+        // console.log("data",data)
+        // data = {}
+      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+          // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     first_name: form.firstName,
+    //     username: form.userName,
+    //     last_name: form.lastName,
+    //     email: form.email,
+    //     password: form.password,
+    //   })
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user)
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
+    // } finally {
+    //   setIsProcessing(false)
+    // }
+        // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     first_name: form.firstName,
+    //     username: form.userName,
+    //     last_name: form.lastName,
+    //     email: form.email,
+    //     password: form.password,
+    //   })
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user)
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
+    // } finally {
+    //   setIsProcessing(false)
+    // }
+          // data = {}
+      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+        //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  // import "./Register.css";
+  //   }, [user, navigate]);
+      // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     first_name: form.firstName,
+    //     username: form.userName,
+    //     last_name: form.lastName,
+    //     email: form.email,
+    //     password: form.password,
+    //   })
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user)
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
+    // } finally {
+    //   setIsProcessing(false)
+    // }
+
+          // data = {}
+      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+        //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  //   }, [user, navigate]);
+  // import "./Register.css";
+      // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     first_name: form.firstName,
+    //     username: form.userName,
+    //     last_name: form.lastName,
+    //     email: form.email,
+    //     password: form.password,
+    //   })
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user)
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
+    // } finally {
+    //   setIsProcessing(false)
+    // }
+          // data = {}
+      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+        //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  //   }, [user, navigate]);
+          //console.log(data.exercises)
+          //   console.log(user)
+          // import "./Banner.css";
+              // try {
+    //   const res = await axios.post("http://localhost:3001/auth/login", form)
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user)
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
+    // } finally {
+    //   setIsProcessing(false)
+    // }
+      // const navigate = useNavigate()
+  //  console.log(user)
+    //  console.log(isAuthenticated)
+          {/* <div className="search">
+        <FilterInput
+          filterInputValue={filterInputValue}
+          handleOnInputChange={handleOnInputChange}
+        />
+      </div> */}
+      {/* <div className="space"> </div> */}
+          //   console.log(user)
+          //console.log(data)
+              // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     first_name: form.firstName,
+    //     username: form.userName,
+    //     last_name: form.lastName,
+    //     email: form.email,
+    //     password: form.password,
+    //   })
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user)
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
+    // } finally {
+    //   setIsProcessing(false)
+    // }
+    // data = {}
+      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
+              //console.log(data.Sleeps)
+                      //   console.log(user)

@@ -56,37 +56,12 @@ export default function CreateActivity({ user, setUser }) {
     const { data, error } = await apiClient.createActivity({
       activity_type: form.activity_type,
     });
-    // console.log("data",data)
+
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
-      // data = {}
-      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
-      //   setUser(data.user);
-      //   apiClient.setToken(data.token);
       navigate("/activity");
     }
     setIsProcessing(false);
-
-    // try {
-    //   const res = await axios.post("http://localhost:3001/auth/register", {
-    //     first_name: form.firstName,
-    //     username: form.userName,
-    //     last_name: form.lastName,
-    //     email: form.email,
-    //     password: form.password,
-    //   })
-    //   if (res?.data?.user) {
-    //     setUser(res.data.user)
-    //   } else {
-    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    //   const message = err?.response?.data?.error?.message
-    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
-    // } finally {
-    //   setIsProcessing(false)
-    // }
   };
 
   return (

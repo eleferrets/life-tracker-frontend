@@ -3,7 +3,7 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Exercise {
   static async listExercisesForUser({ user }) {
-    // console.log(user);
+   
     const results = await db.query(
       `
     SELECT e.id AS "exerciseId",

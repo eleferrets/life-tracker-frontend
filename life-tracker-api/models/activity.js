@@ -3,8 +3,6 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Activity {
   static async listActivitiesForUser({ user }) {
-    // console.log("here");
-
     const results = await db.query(
       `
     SELECT a.id AS "activityId",
@@ -24,9 +22,7 @@ class Activity {
     // JOIN exercises AS e ON e.id = a.exercise_id
     // JOIN nutrition AS n ON n.id = a.nutrition_id
     // JOIN sleep AS s ON s.id = a.sleep_id
-    // console.log("there");
 
-    //
     return results.rows;
   }
   static async createActivity({ activity, user }) {
@@ -36,7 +32,7 @@ class Activity {
     if (!user) {
       throw new BadRequestError("No user provided");
     }
-    // console.log("here")
+
     const results = await db.query(
       `
             INSERT INTO activity (activity_type, user_id)
@@ -51,7 +47,7 @@ class Activity {
         user.email,
       ]
     );
-    // console.log("there")
+
     return results.rows[0];
   }
 }

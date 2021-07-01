@@ -47,19 +47,6 @@ export default function Login({ user, setUser }) {
       apiClient.setToken(data.token);
     }
     setIsProcessing(false);
-    // try {
-    //   const res = await axios.post("http://localhost:3001/auth/login", form)
-    //   if (res?.data?.user) {
-    //     setUser(res.data.user)
-    //   } else {
-    //     setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    //   setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
-    // } finally {
-    //   setIsProcessing(false)
-    // }
   };
 
   return (

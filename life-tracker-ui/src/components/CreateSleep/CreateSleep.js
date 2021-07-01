@@ -12,14 +12,6 @@ export default function CreateSleep({ user, setUser }) {
     end_time: "",
   });
 
-  //   useEffect(() => {
-  //     // if user is already logged in,
-  //     // redirect them to the home page
-  //     if (user?.email) {
-  //       navigate("/");
-  //     }
-  //   }, [user, navigate]);
-
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {
@@ -60,34 +52,9 @@ export default function CreateSleep({ user, setUser }) {
     });
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
-      // data = {}
-      // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
-      //   setUser(data.user);
-      //   apiClient.setToken(data.token);
       navigate("/sleep");
     }
     setIsProcessing(false);
-
-    // try {
-    //   const res = await axios.post("http://localhost:3001/auth/register", {
-    //     first_name: form.firstName,
-    //     username: form.userName,
-    //     last_name: form.lastName,
-    //     email: form.email,
-    //     password: form.password,
-    //   })
-    //   if (res?.data?.user) {
-    //     setUser(res.data.user)
-    //   } else {
-    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    //   const message = err?.response?.data?.error?.message
-    //   setErrors((e) => ({ ...e, form: message ?? String(err) }))
-    // } finally {
-    //   setIsProcessing(false)
-    // }
   };
 
   return (
