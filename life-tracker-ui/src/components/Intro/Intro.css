@@ -1,39 +1,26 @@
 .Intro {
-    height: 350px;
-    width: auto;
-    /* max-width: 100vw; */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    /* padding: 0 60px; */
-    /* background: #0b241b; */
-  }
- 
-  /* .Intro .avatar img {
-    height: 56px;
-    width: 56px;
-    border-radius: 50%;
-    transform: translateY(1px) translateX(1px);
-  }
-  .Intro p {
-    font-weight: 600;
-    color: rgb(162, 250, 231);
-  } */
-  .Intro h2, h1 {
-    font-weight: bolder;
-    color: #333;
-    text-align: center;
-  }
-  .Intro img {
-    align-self: flex-end;
-  }
-  .Content {
-    max-width: 400px;
-    font-size: 1.25em;
-  }
-  .image img {
-    width: 25em;
-    height: auto;
-    border-radius: 30%;
-    padding-left: 2em;
-  }
+  height: 350px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.Intro h2,
+h1 {
+  font-weight: bolder;
+  color: #333;
+  text-align: center;
+}
+.Intro img {
+  align-self: flex-end;
+}
+.Content {
+  max-width: 400px;
+  font-size: 1.25em;
+}
+.image img {
+  width: 25em;
+  height: auto;
+  border-radius: 30%;
+  padding-left: 2em;
+}

@@ -8,12 +8,12 @@
   font-size: 28px;
   margin-top: 40px;
   font-weight: bolder;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
 }
 .Categories button {
   border: none;
-  background-color:unset
+  background-color: unset;
 }
 .Categories {
   display: flex;
@@ -33,10 +33,12 @@
   padding-left: 2em;
 }
 .zoom {
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   padding: 0.5em;
 }
 
 .zoom:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(
+    1.1
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

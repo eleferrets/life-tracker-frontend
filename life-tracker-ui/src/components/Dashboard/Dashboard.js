@@ -4,11 +4,13 @@ import "./Dashboard.css";
 export default function Dashboard({ user }) {
   return (
     <div className="Dashboard">
-      <h1>Welcome <span className="blues">{user.email}</span></h1>
+      <h1>
+        Welcome <span className="blues">{user.username}</span>
+      </h1>
       <div className="Content">
-      <div className="btns">
-        <h2>Activity Overview</h2>
-       
+        <div className="btns">
+          <h2>Activity Overview</h2>
+
           {/* <Link to="/activity">
             <button className="btn primary">Activity</button>
           </Link> */}

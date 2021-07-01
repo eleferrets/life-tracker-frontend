@@ -576,3 +576,28 @@ export default function ProductItem() {
     setProducts((t) => [...t, newProduct]);
   };
     const [products, setProducts] = useState([]);
+      // const dashboard = isAuthenticated ? (
+  //   <>
+  //     <div className="home">
+
+  //     </div>
+  //   </>
+  // ) : (
+  //   <>
+
+  //   </>
+  // );
+  
+/* .Intro .avatar img {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    transform: translateY(1px) translateX(1px);
+  }
+  .Intro p {
+    font-weight: 600;
+    color: rgb(162, 250, 231);
+  } */
+    /* padding: 0 60px; */
+  /* background: #0b241b; */
+    /* max-width: 100vw; */

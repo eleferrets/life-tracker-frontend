@@ -156,15 +156,15 @@
   margin-top: 15px;
 }
 .Register .card .footer {
-      /* border-top: solid 1px #ababb7; */
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 20px;
-      width: 100%;
-      transform: translateY(42px);
-      align-content: flex-end;
-      flex-wrap: wrap;
-      flex-direction: row;
+  /* border-top: solid 1px #ababb7; */
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 100%;
+  transform: translateY(42px);
+  align-content: flex-end;
+  flex-wrap: wrap;
+  flex-direction: row;
 }

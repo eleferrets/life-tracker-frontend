@@ -5,24 +5,14 @@ import Intro from "../Intro/Intro";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
-export default function Home({user}) {
+export default function Home({ user }) {
   const isAuthenticated = Boolean(user?.email);
-  // const dashboard = isAuthenticated ? (
-  //   <>
-  //     <div className="home">
-        
-  //     </div>
-  //   </>
-  // ) : (
-  //   <>
-      
-  //   </>
-  // );
+
   return (
     <div className="Home">
       <div className="dash">
-      <Intro />
-      <StoreActivity />
+        <Intro />
+        <StoreActivity />
       </div>
     </div>
   );

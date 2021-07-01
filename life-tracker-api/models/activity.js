@@ -26,7 +26,7 @@ class Activity {
     // JOIN sleep AS s ON s.id = a.sleep_id
     // console.log("there");
 
-    // 
+    //
     return results.rows;
   }
   static async createActivity({ activity, user }) {

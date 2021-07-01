@@ -1,3 +1,10 @@
+// Deploy Site
+
+// Add endpoint to get total exercise minutes and other category stuff
+
+// add link of table schema
+
+// Stuff to categories
 <div className="input-field">
               <label htmlFor="name">Select a location</label>
               <select name="location" onChange={(event) => setForm((f) => ({ ...f, location: event.target.value }))}>
