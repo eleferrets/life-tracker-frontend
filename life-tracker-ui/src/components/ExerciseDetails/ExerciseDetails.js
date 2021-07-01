@@ -27,7 +27,7 @@ export default function ExerciseDetails({user}) {
   return (
     <div className="ExerciseDetails">
     {   exercises.map((exercise) => (
-    <div className="card" key={exercise.id}>
+    <div className="card" key={exercise.exerciseId}>
         <span><p>{exercise.name}</p></span>
         <span><p>{"Category: "+exercise.category}</p></span>
         <span><p>{"Duration: "+exercise.duration+" mins"}</p></span>

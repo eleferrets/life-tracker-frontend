@@ -15,13 +15,13 @@ export default function CreateExercise({ user, setUser }) {
     image_url: "",
   });
 
-//   useEffect(() => {
-//     // if user is already logged in,
-//     // redirect them to the home page
-//     if (user?.email) {
-//       navigate("/");
-//     }
-//   }, [user, navigate]);
+  //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  //   }, [user, navigate]);
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
@@ -57,20 +57,20 @@ export default function CreateExercise({ user, setUser }) {
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
-    const { data, error } = await apiClient.createExercise({
+    const { data, error } = await apiClient.createNutrition({
       name: form.name,
       category: form.category,
       quantity: Number(form.quantity),
       calories: Number(form.calories),
-      image_url: form.image_url
+      image_url: form.image_url,
     });
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
       // data = {}
       // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
-    //   setUser(data.user);
-    //   apiClient.setToken(data.token);
-    navigate("/exercise")
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+      navigate("/nutrition");
     }
     setIsProcessing(false);
 
@@ -99,7 +99,7 @@ export default function CreateExercise({ user, setUser }) {
   return (
     <div className="Register">
       <div className="card">
-        <h2>New Exercise</h2>
+        <h2>New Nutrition</h2>
 
         {errors.form && <span className="error">{errors.form}</span>}
         <br />
@@ -114,20 +114,20 @@ export default function CreateExercise({ user, setUser }) {
               value={form.name}
               onChange={handleOnInputChange}
             />
-            {errors.name && (
-              <span className="error">{errors.name}</span>
-            )}
+            {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <div className="input-field">
             <label htmlFor="category">Category</label>
             <input
               type="text"
               name="category"
-              placeholder="Enter the exercise category"
+              placeholder="Enter the nutrition category"
               value={form.category}
               onChange={handleOnInputChange}
             />
-            {errors.category && <span className="error">{errors.category}</span>}
+            {errors.category && (
+              <span className="error">{errors.category}</span>
+            )}
           </div>
           <div className="split-inputs">
             <div className="input-field">
@@ -161,15 +161,15 @@ export default function CreateExercise({ user, setUser }) {
             <label htmlFor="imageUrl">Image Url</label>
             <input
               type="text"
-              name="imageUrl"
+              name="image_url"
               placeholder="Enter the url of the image"
               value={form.image_url}
               onChange={handleOnInputChange}
             />
-            {errors.image_url && <span className="error">{errors.image_url}</span>}
+            {errors.image_url && (
+              <span className="error">{errors.image_url}</span>
+            )}
           </div>
-
-          
 
           {/* <div className="input-field">
             <label htmlFor="password">Password</label>

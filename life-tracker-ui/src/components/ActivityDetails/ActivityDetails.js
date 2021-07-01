@@ -15,6 +15,7 @@ export default function ActivityDetails({user}) {
         //   console.log(user)
         const {data} = await apiClient.listActivities(user)
         //console.log(data.Activities)
+       // console.log(data)
         setActivities(data.activities);
       } catch (err) {
         setError(err);
@@ -27,11 +28,8 @@ export default function ActivityDetails({user}) {
   return (
     <div className="ActivityDetails">
     {   activities.map((activity) => (
-    <div className="card" key={activity.id}>
-        <span><p>{activity.name}</p></span>
-        <span><p>{"Category: "+activity.category}</p></span>
-        <span><p>{"Duration: "+activity.duration+" mins"}</p></span>
-        <span><p>{"Intensity: "+activity.intensity+"/10"}</p></span>
+    <div className="card" key={activity.activityId}>
+        <span><p>{"Activity Type: "+activity.activityType}</p></span>
     </div>
   ))}
     </div>

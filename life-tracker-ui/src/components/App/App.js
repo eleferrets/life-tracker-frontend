@@ -87,7 +87,7 @@ export default function App() {
             path="/newactivity"
             element={<CreateActivity user={user} />}
           ></Route>
-          <Route path="/details" element={<Dashboard user={user} />}></Route>
+          {/* <Route path="/details" element={<Dashboard user={user} />}></Route> */}
 
           {/* <Route
             path="/products/:productId"

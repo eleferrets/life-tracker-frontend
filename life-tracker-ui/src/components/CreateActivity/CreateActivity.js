@@ -11,13 +11,13 @@ export default function CreateActivity({ user, setUser }) {
     activity_type: "",
   });
 
-//   useEffect(() => {
-//     // if user is already logged in,
-//     // redirect them to the home page
-//     if (user?.email) {
-//       navigate("/");
-//     }
-//   }, [user, navigate]);
+  //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  //   }, [user, navigate]);
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
@@ -56,13 +56,14 @@ export default function CreateActivity({ user, setUser }) {
     const { data, error } = await apiClient.createActivity({
       activity_type: form.activity_type,
     });
+    // console.log("data",data)
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
       // data = {}
       // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
-    //   setUser(data.user);
-    //   apiClient.setToken(data.token);
-    navigate("/activity")
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+      navigate("/activity");
     }
     setIsProcessing(false);
 
@@ -101,7 +102,7 @@ export default function CreateActivity({ user, setUser }) {
             <label htmlFor="name">Activity Type</label>
             <input
               type="text"
-              name="name"
+              name="activity_type"
               placeholder="Enter the activity type"
               value={form.activity_type}
               onChange={handleOnInputChange}
@@ -149,8 +150,6 @@ export default function CreateActivity({ user, setUser }) {
               )}
             </div>
           </div> */}
-
-          
 
           {/* <div className="input-field">
             <label htmlFor="password">Password</label>

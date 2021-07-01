@@ -1,20 +1,27 @@
 .content {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;  
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.content a {
+  text-align: center;
 }
 .card {
-    border: solid;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-flow: column nowrap;
-    padding: 1em;
-    margin: 1em;
+  border: solid;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-flow: column nowrap;
+  padding: 1em;
+  margin: 1em;
 }
 .card p {
-max-width: 200px;
-    word-wrap: break-word;
-    }
+  max-width: 200px;
+  word-wrap: break-word;
+}
+.card img {
+  width: 50px;
+  border-radius: 25%;
+}

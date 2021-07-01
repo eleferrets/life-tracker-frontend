@@ -14,7 +14,7 @@ class Nutrition {
     n.image_url AS "imageUrl"
     FROM nutrition AS n
     JOIN users AS u ON u.id = n.user_id
-    WHERE u.id = (SELECT id FROM users WHERE email = $1)
+    WHERE u.id = (SELECT id FROM users WHERE email = $1);
     `,
       [user.email]
     );

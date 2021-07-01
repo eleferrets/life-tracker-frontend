@@ -14,13 +14,13 @@ export default function CreateExercise({ user, setUser }) {
     intensity: "",
   });
 
-//   useEffect(() => {
-//     // if user is already logged in,
-//     // redirect them to the home page
-//     if (user?.email) {
-//       navigate("/");
-//     }
-//   }, [user, navigate]);
+  //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  //   }, [user, navigate]);
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
@@ -66,9 +66,9 @@ export default function CreateExercise({ user, setUser }) {
     if (data) {
       // data = {}
       // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
-    //   setUser(data.user);
-    //   apiClient.setToken(data.token);
-    navigate("/exercise")
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+      navigate("/exercise");
     }
     setIsProcessing(false);
 
@@ -112,9 +112,7 @@ export default function CreateExercise({ user, setUser }) {
               value={form.name}
               onChange={handleOnInputChange}
             />
-            {errors.name && (
-              <span className="error">{errors.name}</span>
-            )}
+            {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <div className="input-field">
             <label htmlFor="category">Category</label>
@@ -125,7 +123,9 @@ export default function CreateExercise({ user, setUser }) {
               value={form.category}
               onChange={handleOnInputChange}
             />
-            {errors.category && <span className="error">{errors.category}</span>}
+            {errors.category && (
+              <span className="error">{errors.category}</span>
+            )}
           </div>
           <div className="split-inputs">
             <div className="input-field">
@@ -146,7 +146,8 @@ export default function CreateExercise({ user, setUser }) {
               <input
                 type="number"
                 name="intensity"
-                max="10" min="0"
+                max="10"
+                min="0"
                 value={form.intensity}
                 onChange={handleOnInputChange}
               />
@@ -155,8 +156,6 @@ export default function CreateExercise({ user, setUser }) {
               )}
             </div>
           </div>
-
-          
 
           {/* <div className="input-field">
             <label htmlFor="password">Password</label>

@@ -7,8 +7,8 @@ class Sleep {
     const results = await db.query(
       `
     SELECT s.id AS "sleepId",
-    s.start_time AS "start_time",
-    s.end_time AS "end_time",
+    s.start_time AS "startTime",
+    s.end_time AS "endTime",
     u.email AS "userEmail"
     FROM sleep AS s
     JOIN users AS u ON u.id = s.user_id

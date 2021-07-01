@@ -3,35 +3,34 @@ import { useState, useEffect } from "react";
 // import "./Banner.css";
 import apiClient from "../../services/apiClient";
 
-export default function ExerciseDetails({user}) {
+export default function SleepDetails({user}) {
     const [isFetching, setFetching] = useState(false);
     const [error, setError] = useState(null);
-    const [exercises, setExercises] = useState([]);
+    const [sleeps, setSleeps] = useState([]);
      // Fetch products
   useEffect(() => {
-    const fetchExercises = async () => {
+    const fetchSleeps = async () => {
       setFetching(true);
       try {
         //   console.log(user)
-        const {data} = await apiClient.listExercises(user)
-        //console.log(data.exercises)
-        setExercises(data.exercises);
+        const {data} = await apiClient.listSleeps(user)
+        //console.log(data.Sleeps)
+        setSleeps(data.sleeps);
       } catch (err) {
         setError(err);
       }
 
       setFetching(false);
     };
-    fetchExercises();
+    fetchSleeps();
   }, []);
   return (
-    <div className="ExerciseDetails">
-    {   exercises.map((exercise) => (
-    <div className="card" key={exercise.id}>
-        <span><p>{exercise.name}</p></span>
-        <span><p>{"Category: "+exercise.category}</p></span>
-        <span><p>{"Duration: "+exercise.duration+" mins"}</p></span>
-        <span><p>{"Intensity: "+exercise.intensity+"/10"}</p></span>
+    <div className="SleepDetails">
+    {   sleeps.map((sleep) => (
+    <div className="card" key={sleep.sleepId}>
+      {/* We get the start time date and the start time time here */}
+        <span><p>{"Started: "+(sleep.startTime).substring(0, 10)+"@"+(sleep.startTime).substring(11, 16)}</p></span>
+        <span><p>{"Ended: "+(sleep.endTime).substring(0, 10)+"@"+(sleep.endTime).substring(11, 16)}</p></span>
     </div>
   ))}
     </div>

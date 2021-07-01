@@ -12,13 +12,13 @@ export default function CreateSleep({ user, setUser }) {
     end_time: "",
   });
 
-//   useEffect(() => {
-//     // if user is already logged in,
-//     // redirect them to the home page
-//     if (user?.email) {
-//       navigate("/");
-//     }
-//   }, [user, navigate]);
+  //   useEffect(() => {
+  //     // if user is already logged in,
+  //     // redirect them to the home page
+  //     if (user?.email) {
+  //       navigate("/");
+  //     }
+  //   }, [user, navigate]);
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
@@ -55,18 +55,16 @@ export default function CreateSleep({ user, setUser }) {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
     const { data, error } = await apiClient.createSleep({
-      name: form.name,
-      category: form.category,
-      duration: Number(form.duration),
-      intensity: Number(form.intensity),
+      start_time: form.start_time,
+      end_time: form.end_time,
     });
     if (error) setErrors((e) => ({ ...e, form: error }));
     if (data) {
       // data = {}
       // const {data:datal, error} = await apiClient.loginUser({email: form.email, password: form.password})
-    //   setUser(data.user);
-    //   apiClient.setToken(data.token);
-    navigate("/sleep")
+      //   setUser(data.user);
+      //   apiClient.setToken(data.token);
+      navigate("/sleep");
     }
     setIsProcessing(false);
 
@@ -104,8 +102,8 @@ export default function CreateSleep({ user, setUser }) {
           <div className="input-field">
             <label htmlFor="name">Start Time</label>
             <input
-              type="date"
-              name="startTime"
+              type="datetime-local"
+              name="start_time"
               placeholder="Enter the start time"
               value={form.start_time}
               onChange={handleOnInputChange}
@@ -117,13 +115,15 @@ export default function CreateSleep({ user, setUser }) {
           <div className="input-field">
             <label htmlFor="category">End Time</label>
             <input
-              type="text"
-              name="endTime"
+              type="datetime-local"
+              name="end_time"
               placeholder="Enter the end time"
               value={form.end_time}
               onChange={handleOnInputChange}
             />
-            {errors.end_time && <span className="error">{errors.end_time}</span>}
+            {errors.end_time && (
+              <span className="error">{errors.end_time}</span>
+            )}
           </div>
           {/* <div className="split-inputs">
             <div className="input-field">
@@ -153,8 +153,6 @@ export default function CreateSleep({ user, setUser }) {
               )}
             </div>
           </div> */}
-
-          
 
           {/* <div className="input-field">
             <label htmlFor="password">Password</label>

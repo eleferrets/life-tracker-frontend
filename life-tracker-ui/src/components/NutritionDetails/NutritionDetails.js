@@ -14,7 +14,7 @@ export default function NutritionDetails({user}) {
       try {
         //   console.log(user)
         const {data} = await apiClient.listNutritions(user)
-        //console.log(data.Nutritions)
+        console.log(data)
         setNutritions(data.nutritions);
       } catch (err) {
         setError(err);
@@ -27,11 +27,12 @@ export default function NutritionDetails({user}) {
   return (
     <div className="NutritionDetails">
     {   nutritions.map((nutrition) => (
-    <div className="card" key={nutrition.id}>
+    <div className="card" key={nutrition.nutritionId}>
+      <span><img src={`${nutrition.imageUrl}`} alt="Nutrition picture"></img></span>
         <span><p>{nutrition.name}</p></span>
         <span><p>{"Category: "+nutrition.category}</p></span>
-        <span><p>{"Duration: "+nutrition.duration+" mins"}</p></span>
-        <span><p>{"Intensity: "+nutrition.intensity+"/10"}</p></span>
+        <span><p>{"Quantity: "+nutrition.quantity}</p></span>
+        <span><p>{"Calories: "+nutrition.calories}</p></span>
     </div>
   ))}
     </div>
