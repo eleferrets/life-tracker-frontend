@@ -1,0 +1,29 @@
+<div className="input-field">
+              <label htmlFor="name">Select a location</label>
+              <select name="location" onChange={(event) => setForm((f) => ({ ...f, location: event.target.value }))}>
+                {locationOptions.map((location) => (
+                  <option key={location.key} value={location.label}>
+                    {location.label}
+                  </option>
+                ))}
+              </select>
+              {errors.location && <span className="error">{errors.location}</span>}
+            </div>
+
+            const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    date: "",
+    password: "",
+    passwordConfirm: "",
+    location: "Local Clinic",
+    agreeToTerms: false,
+  })
+
+  const locationOptions = [
+  { key: 1, label: "Local Clinic", value: "local clinic" },
+  { key: 2, label: "Regional Hospital", value: "regional hospital" },
+  { key: 3, label: "Care Center", value: "care center" },
+  { key: 4, label: "Department of Health", value: "department of health" },
+]

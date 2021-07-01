@@ -98,7 +98,7 @@
   width: 27em;
 }
 .btn {
-  background-color: #4CAF50;
+  background-color: #3c853f;
   border: none;
   color: white;
   padding: 10px 27px;
@@ -109,7 +109,28 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+  font-weight: bold;
 }
 .btns-normal {
   display: flex;
+}
+.login {
+  background-color: whitesmoke;
+  border-color: rgb(52, 177, 135);
+  border: auto;
+  border-style: solid;
+  color: rgb(59, 153, 122);
+}
+.signout {
+  background-color: whitesmoke;
+  border-style: solid;
+  border: auto;
+  border-color: darkcyan;
+  color: rgb(21, 46, 46);
+}
+.register {
+  background-color: rgb(47, 109, 150);
+  border-style: solid;
+  border: auto;
+  color: rgb(255, 255, 255);
 }

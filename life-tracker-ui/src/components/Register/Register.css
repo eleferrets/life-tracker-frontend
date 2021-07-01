@@ -63,15 +63,15 @@
   cursor: pointer;
   margin-top: 15px;
 }
-.Register .card .footer {
-  /* border-top: solid 1px var(--border-color); */
+/* .Register .card .footer {
+  /* border-top: solid 1px var(--border-color); 
   margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 35px;
   width: 100%;
-}
+} */
 
 /* Other styles */
 
@@ -89,11 +89,12 @@
 .Register .card {
   max-width: 520px;
   padding: 24px 36px 0 36px;
-  background: #fff;
+  background: var(--pure-white);
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
+  padding-bottom: 50px;
 }
 .Register .card .error {
   background: #fe5421;
@@ -155,12 +156,15 @@
   margin-top: 15px;
 }
 .Register .card .footer {
-  border-top: solid 1px #ababb7;
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  width: 100%;
-  transform: translateY(42px);
+      /* border-top: solid 1px #ababb7; */
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 20px;
+      width: 100%;
+      transform: translateY(42px);
+      align-content: flex-end;
+      flex-wrap: wrap;
+      flex-direction: row;
 }

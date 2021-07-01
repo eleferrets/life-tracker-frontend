@@ -17,7 +17,7 @@ export default function Navbar({
   const buttons = isAuthenticated ? (
     <>
       <div className="btn-logout">
-        <button className="btn primary" onClick={handleOnLogout}>
+        <button className="btn primary signout" onClick={handleOnLogout}>
           Sign out
         </button>
       </div>
@@ -26,10 +26,10 @@ export default function Navbar({
     <>
       <div className="btns-normal">
         <Link to="/register">
-          <button className="btn primary">Register</button>
+          <button className="btn primary register">Register</button>
         </Link>
         <Link to="/login">
-          <button className="btn secondary">Sign in</button>
+          <button className="btn secondary login">Sign in</button>
         </Link>
       </div>
     </>

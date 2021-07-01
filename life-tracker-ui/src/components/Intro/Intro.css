@@ -22,6 +22,7 @@
   .Intro h2, h1 {
     font-weight: bolder;
     color: #333;
+    text-align: center;
   }
   .Intro img {
     align-self: flex-end;
