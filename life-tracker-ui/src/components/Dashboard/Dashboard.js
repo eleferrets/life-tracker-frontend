@@ -62,7 +62,9 @@ export default function Dashboard({ user }) {
       <p>{"Duration: " + exercise.duration}</p>
     </>
   ) : (
-    { defaultMsg }
+    <>
+      <p>Nothing yet...</p>
+    </>
   );
   const Bnutrition = Boolean(nutrition);
   const messageN = Bnutrition ? (
@@ -70,7 +72,9 @@ export default function Dashboard({ user }) {
       <p>{"Calories: " + nutrition.calories}</p>
     </>
   ) : (
-    { defaultMsg }
+    <>
+      <p>Nothing yet...</p>
+    </>
   );
   const Bsleep = Boolean(sleep);
   const messageS = Bsleep ? (
@@ -83,7 +87,9 @@ export default function Dashboard({ user }) {
       </span>
     </>
   ) : (
-    { defaultMsg }
+    <>
+      <p>Nothing yet...</p>
+    </>
   );
   return (
     <div className="Dashboard">
@@ -107,8 +113,9 @@ export default function Dashboard({ user }) {
             <button className="btn primary sleep">Add Sleep</button>
           </Link>
         </div>
-
+        <h2 className="black">Stats</h2>
         <div className="stats">
+        
           <div className="card linor">
             <span>
               <p>Total Minutes</p>

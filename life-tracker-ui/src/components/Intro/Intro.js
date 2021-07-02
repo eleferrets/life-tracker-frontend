@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import fitness from "../../assets/fitness.jpg";
+import life from "../../assets/life.jpg";
 import "./Intro.css";
 
 export default function Intro() {
@@ -10,8 +10,8 @@ export default function Intro() {
         <h2>Helping you towards a better you one step at a time</h2>
       </div>
 
-      <div className="image">
-        <img src={fitness} alt="Fitness"></img>
+      <div className="image life">
+        <img src={life} alt="Life"></img>
       </div>
     </div>
   );

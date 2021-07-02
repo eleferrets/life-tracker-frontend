@@ -92,6 +92,10 @@ h1 {
   align-content: center;
   justify-content: center;
   align-items: flex-start;
+  width: 515px;
+}
+.black {
+  color: black !important;
 }
 .card {
   border: solid;

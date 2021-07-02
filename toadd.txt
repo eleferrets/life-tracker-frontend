@@ -1,6 +1,5 @@
 // Deploy Site
 
-
 // Stuff to categories
 <div className="input-field">
               <label htmlFor="name">Select a location</label>
