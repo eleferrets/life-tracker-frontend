@@ -54,7 +54,7 @@ I would have attempted more stretch features and used custom hooks to refactor m
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+Everything except for the activity page went well, and the activity page ended up breaking during the demo. I want to include some of the font changes that a peer made to make their project look nice.
 
 ### Open-source libraries used
 

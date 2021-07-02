@@ -174,7 +174,7 @@ export default function Register({ user, setUser }) {
           </button>
         </div>
 
-        <div className="footer">
+        <div className="footer smaller">
           <p>
             Already have an account? Login <Link to="/login">here</Link>
           </p>
