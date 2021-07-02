@@ -21,6 +21,28 @@ class Exercise {
 
     return results.rows;
   }
+  static async listExerciseMinutes({ user }) {
+   
+    const results = await db.query(
+    `
+    SELECT SUM(e.duration) AS "duration",
+    u.id
+    FROM exercises AS e
+    JOIN users AS u ON u.id = e.user_id
+    WHERE u.id = (SELECT id FROM users WHERE email = $1)
+    GROUP BY u.id
+    
+    `,
+       [user.email]
+    );
+
+    return results.rows;
+  }
+      // 
+    // 
+    // 
+  // u.email AS "userEmail",
+  // SELECT * FROM Table ORDER BY ID DESC LIMIT 1
   static async createExercise({ exercise, user }) {
     if (!exercise || !Object.keys(exercise).length) {
       throw new BadRequestError("No exercise info provided");

@@ -20,7 +20,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [filterInputValue, setInputValue] = useState(null);
   const [user, setUser] = useState({});
-  const [appState, setAppState] = useState({});
+  // const [appState, setAppState] = useState({});
 
   const handleOnInputChange = async (evt) => {
     setInputValue();
