@@ -5,7 +5,7 @@ export default function Dashboard({ user }) {
   return (
     <div className="Dashboard">
       <h1>
-        Welcome <span className="blues">{user.username}</span>
+        Welcome, <span className="blues">{user.username}</span>!
       </h1>
       <div className="Content">
         <div className="btns">
