@@ -31,7 +31,7 @@ class Sleep {
       DESC LIMIT 1
       
       `,
-       [user.id]
+        [user.email]
     );
     
       // [user.id]
