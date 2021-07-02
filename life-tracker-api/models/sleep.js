@@ -22,17 +22,25 @@ class Sleep {
   static async listLastSleep({ user }) {
    
     const results = await db.query(
-    `
-    SELECT start_time, end_time
-    FROM sleep AS s
-    JOIN users AS u ON u.id = s.user_id
-    WHERE u.id = (SELECT id FROM users WHERE email = $1)
-    ORDER BY u.id
-    DESC LIMIT 1
-    
-    `,
-       [user.email]
+      `
+      SELECT start_time, end_time
+      FROM sleep AS s
+      JOIN users AS u ON u.id = s.user_id
+      WHERE u.id = (SELECT id FROM users WHERE email = $1)
+      ORDER BY u.id
+      DESC LIMIT 1
+      
+      `,
+       [user.id]
     );
+    
+      // [user.id]
+      // `
+      // SELECT SUM(end_time, start_time)
+      // FROM sleep AS s
+      // JOIN users AS u ON u.id = s.user_id
+      // WHERE u.id = (SELECT id FROM users WHERE email = $1)
+      // `,
 
     return results.rows;
   }

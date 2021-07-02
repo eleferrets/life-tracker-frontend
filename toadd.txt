@@ -1,8 +1,5 @@
 // Deploy Site
 
-// Add endpoint to get total exercise minutes and other category stuff
-
-// add link of table schema
 
 // Stuff to categories
 <div className="input-field">

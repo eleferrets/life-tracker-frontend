@@ -32,8 +32,8 @@ CREATE TABLE nutrition (
 
 CREATE TABLE sleep (
   id          SERIAL PRIMARY KEY,
-  start_time TIMESTAMP NOT NULL,
-  end_time TIMESTAMP NOT NULL,
+  start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+  end_time TIMESTAMP WITH TIME ZONE NOT NULL,
   user_id   INTEGER REFERENCES users(id) ON DELETE CASCADE,
   timestamp  TIMESTAMP DEFAULT NOW()
 );

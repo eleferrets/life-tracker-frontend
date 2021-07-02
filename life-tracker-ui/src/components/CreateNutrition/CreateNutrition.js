@@ -3,12 +3,17 @@ import { useNavigate, Link } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 
 export default function CreateExercise({ user, setUser }) {
+  const categoryOptions = [
+    { key: 1, label: "Snack", value: "snack" },
+    { key: 2, label: "Beverage", value: "beverage" },
+    { key: 3, label: "Food", value: "food" },
+  ]
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     name: "",
-    category: "",
+    category: "Food",
     quantity: "",
     calories: "",
     image_url: "",
@@ -83,18 +88,16 @@ export default function CreateExercise({ user, setUser }) {
             {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <div className="input-field">
-            <label htmlFor="category">Category</label>
-            <input
-              type="text"
-              name="category"
-              placeholder="Enter the nutrition category"
-              value={form.category}
-              onChange={handleOnInputChange}
-            />
-            {errors.category && (
-              <span className="error">{errors.category}</span>
-            )}
-          </div>
+              <label htmlFor="name">Select a category</label>
+              <select name="category" onChange={(event) => setForm((f) => ({ ...f, category: event.target.value }))}>
+                {categoryOptions.map((category) => (
+                  <option key={category.key} value={category.label}>
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              {errors.category && <span className="error">{errors.category}</span>}
+            </div>
           <div className="split-inputs">
             <div className="input-field">
               <label htmlFor="name">Quantity</label>
