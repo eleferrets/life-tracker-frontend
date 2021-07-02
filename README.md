@@ -19,7 +19,7 @@ Other Repo: [Lifetracker Other Repo](https://github.com/eleferrets/life-tracker-
 - [x] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
-- [ ] Deployed website with Heroku & Surge. 
+- [-] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
 - [x] The detailed activity page should display a feed of all previous tracked activities.
@@ -38,9 +38,8 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+![image](Assignment3.gif)
+![image](Assignment3-2.gif)
 
 ### Reflection
 
