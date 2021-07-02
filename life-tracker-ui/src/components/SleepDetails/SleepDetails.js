@@ -24,7 +24,7 @@ export default function SleepDetails({ user }) {
   return (
     <div className="SleepDetails">
       {sleeps.map((sleep) => (
-        <div className="card" key={sleep.sleepId}>
+        <div className="card linpnk" key={sleep.sleepId}>
           {/* We get the start time date and the start time time here */}
           <span>
             <p>

@@ -31,16 +31,20 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
   }
 });
 
-router.get("/minute", security.requireAuthenticatedUser, async (req, res, next) => {
-  try {
-    // List all minutes
-    const { user } = res.locals;
+router.get(
+  "/minute",
+  security.requireAuthenticatedUser,
+  async (req, res, next) => {
+    try {
+      // List all minutes
+      const { user } = res.locals;
 
-    const minutes = await Exercise.listExerciseMinutes({ user });
-    return res.status(200).json({ minutes });
-  } catch (err) {
-    next(err);
+      const minutes = await Exercise.listExerciseMinutes({ user });
+      return res.status(200).json({ minutes });
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
 
 module.exports = router;

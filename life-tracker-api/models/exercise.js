@@ -3,7 +3,6 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Exercise {
   static async listExercisesForUser({ user }) {
-   
     const results = await db.query(
       `
     SELECT e.id AS "exerciseId",
@@ -22,9 +21,8 @@ class Exercise {
     return results.rows;
   }
   static async listExerciseMinutes({ user }) {
-   
     const results = await db.query(
-    `
+      `
     SELECT SUM(e.duration) AS "duration",
     u.id
     FROM exercises AS e
@@ -33,7 +31,7 @@ class Exercise {
     GROUP BY u.id
     
     `,
-       [user.email]
+      [user.email]
     );
 
     return results.rows;
@@ -55,7 +53,6 @@ class Exercise {
             timestamp
             `,
       [
-        // userId,
         exercise.name,
         exercise.category,
         exercise.duration,

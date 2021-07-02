@@ -3,7 +3,6 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Nutrition {
   static async listNutritionsForUser({ user }) {
-    
     const results = await db.query(
       `
     SELECT n.id AS "nutritionId",
@@ -22,9 +21,8 @@ class Nutrition {
     return results.rows;
   }
   static async listNutritionCalories({ user }) {
-   
     const results = await db.query(
-    `
+      `
     SELECT SUM(n.calories) AS "calories",
     u.id
     FROM nutrition AS n
@@ -33,7 +31,7 @@ class Nutrition {
     GROUP BY u.id
     
     `,
-       [user.email]
+      [user.email]
     );
 
     return results.rows;
@@ -54,7 +52,6 @@ class Nutrition {
             timestamp
             `,
       [
-        // userId,
         nutrition.name,
         nutrition.category,
         nutrition.quantity,

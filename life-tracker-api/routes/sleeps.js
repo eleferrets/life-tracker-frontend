@@ -19,7 +19,6 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
 router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
     const { user } = res.locals;
-
     const sleeps = await Sleep.listSleepsForUser({ user });
     return res.status(200).json({ sleeps });
   } catch (err) {
@@ -29,7 +28,6 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
 router.get("/last", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
     const { user } = res.locals;
-
     const sleepy = await Sleep.listLastSleep({ user });
     return res.status(200).json({ sleepy });
   } catch (err) {

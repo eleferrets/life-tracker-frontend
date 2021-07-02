@@ -9,48 +9,82 @@ export default function Dashboard({ user }) {
   const [sleep, setSleep] = useState([]);
   const [nutrition, setNutrition] = useState([]);
   const [error, setError] = useState(null);
-    // Fetch exercises
-    useEffect(() => {
-      const fetchExercise = async () => {
-        setFetching(true);
-        try {
-          const { data } = await apiClient.fetchExerciseMinutes(user);
-          // console.log("exercise", data.minutes)
-          setExercise(data);
-          // console.log(exercise)
-        } catch (err) {
-          setError(err);
-        }
-        setFetching(false);
-      };
-      const fetchNutrition = async () => {
-        setFetching(true);
-        try {
-          const { data } = await apiClient.fetchNutritionCalories(user);
-          console.log("nutrition", data)
-          setNutrition(data.calories);
-          console.log(nutrition)
-        } catch (err) {
-          setError(err);
-        }
-        setFetching(false);
-      };
-      const fetchSleep = async () => {
-        setFetching(true);
-        try {
-          const { data } = await apiClient.fetchLastSleep(user);
-          console.log("sleep", data)
-          setSleep(data.sleepy);
-          console.log(sleep)
-        } catch (err) {
-          setError(err);
-        }
-        setFetching(false);
-      };
-      fetchExercise();
-      fetchNutrition();
-      fetchSleep();
-    }, []);
+  // Fetch exercises
+  useEffect(() => {
+    const fetchExercise = async () => {
+      setFetching(true);
+      try {
+        const { data } = await apiClient.fetchExerciseMinutes(user);
+        // console.log("exercise", data.minutes)
+        setExercise(data.minutes[0]);
+        // console.log("e",exercise)
+      } catch (err) {
+        setError(err);
+      }
+      setFetching(false);
+    };
+    const fetchNutrition = async () => {
+      setFetching(true);
+      try {
+        const { data } = await apiClient.fetchNutritionCalories(user);
+        // console.log("nutrition", data)
+        setNutrition(data.calories[0]);
+        // console.log("n",nutrition)
+      } catch (err) {
+        setError(err);
+      }
+      setFetching(false);
+    };
+    const fetchSleep = async () => {
+      setFetching(true);
+      try {
+        const { data } = await apiClient.fetchLastSleep(user);
+        // console.log("sleep", data)
+        setSleep(data.sleepy[0]);
+        // console.log("s",sleep)
+      } catch (err) {
+        setError(err);
+      }
+      setFetching(false);
+    };
+    fetchExercise();
+    fetchNutrition();
+    fetchSleep();
+  }, []);
+  const defaultMsg = (
+    <>
+      <p>Nothing yet...</p>
+    </>
+  );
+  const Bexercise = Boolean(exercise);
+  const messageE = Bexercise ? (
+    <>
+      <p>{"Duration: " + exercise.duration}</p>
+    </>
+  ) : (
+    { defaultMsg }
+  );
+  const Bnutrition = Boolean(nutrition);
+  const messageN = Bnutrition ? (
+    <>
+      <p>{"Calories: " + nutrition.calories}</p>
+    </>
+  ) : (
+    { defaultMsg }
+  );
+  const Bsleep = Boolean(sleep);
+  const messageS = Bsleep ? (
+    <>
+      <span>
+        <p>{"Started: " + sleep.start_time}</p>
+      </span>
+      <span>
+        <p>{"Ended: " + sleep.end_time}</p>
+      </span>
+    </>
+  ) : (
+    { defaultMsg }
+  );
   return (
     <div className="Dashboard">
       <h1>
@@ -75,20 +109,24 @@ export default function Dashboard({ user }) {
         </div>
 
         <div className="stats">
-        {/* <div className="card" key={exercise.exerciseId}>
-          <span>
-            <p>{exercise.name}</p>
-          </span>
-          <span>
-            <p>{"Category: " + exercise.category}</p>
-          </span>
-          <span>
-            <p>{"Duration: " + exercise.duration + " mins"}</p>
-          </span>
-          <span>
-            <p>{"Intensity: " + exercise.intensity + "/10"}</p>
-          </span>
-        </div> */}
+          <div className="card linor">
+            <span>
+              <p>Total Minutes</p>
+            </span>
+            <span>{messageE}</span>
+          </div>
+          <div className="card lintl">
+            <span>
+              <p>Total Calories</p>
+            </span>
+            <span>{messageN}</span>
+          </div>
+          <div className="card linpnk">
+            <span>
+              <p>Last entered sleep</p>
+            </span>
+            <span>{messageS}</span>
+          </div>
         </div>
       </div>
     </div>

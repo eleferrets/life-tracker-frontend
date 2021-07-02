@@ -87,6 +87,11 @@ h1 {
 
 .stats {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
 }
 .card {
   border: solid;
@@ -96,4 +101,32 @@ h1 {
   flex-flow: column nowrap;
   padding: 1em;
   margin: 1em;
+}
+.linor {
+  background: linear-gradient(64.7deg, #ffab09, #ffab09);
+  border-color: linear-gradient(64.7deg, #ffab09, #ffab09);
+  border-radius: 15%;
+  color: white;
+  font-weight: bolder;
+}
+.lintl {
+  background: linear-gradient(64.7deg, #1000c9, #00c98e);
+  border-color: linear-gradient(64.7deg, #1000c9, #00c98e);
+  border-radius: 15%;
+  color: white;
+  font-weight: bolder;
+}
+.lindkor {
+  background: linear-gradient(64.7deg, #8e3232, #c96d00);
+  border-color: linear-gradient(64.7deg, #8e3232, #c96d00);
+  border-radius: 15%;
+  color: white;
+  font-weight: bolder;
+}
+.linpnk {
+  background: linear-gradient(64.7deg, #c90000, rgba(251, 112, 144, 0.85));
+  border-color: linear-gradient(64.7deg, #c90000, rgba(251, 112, 144, 0.85));
+  border-radius: 15%;
+  color: white;
+  font-weight: bolder;
 }

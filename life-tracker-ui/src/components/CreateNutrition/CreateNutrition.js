@@ -7,7 +7,7 @@ export default function CreateExercise({ user, setUser }) {
     { key: 1, label: "Snack", value: "snack" },
     { key: 2, label: "Beverage", value: "beverage" },
     { key: 3, label: "Food", value: "food" },
-  ]
+  ];
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState({});
@@ -88,16 +88,23 @@ export default function CreateExercise({ user, setUser }) {
             {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <div className="input-field">
-              <label htmlFor="name">Select a category</label>
-              <select name="category" onChange={(event) => setForm((f) => ({ ...f, category: event.target.value }))}>
-                {categoryOptions.map((category) => (
-                  <option key={category.key} value={category.label}>
-                    {category.label}
-                  </option>
-                ))}
-              </select>
-              {errors.category && <span className="error">{errors.category}</span>}
-            </div>
+            <label htmlFor="name">Select a category</label>
+            <select
+              name="category"
+              onChange={(event) =>
+                setForm((f) => ({ ...f, category: event.target.value }))
+              }
+            >
+              {categoryOptions.map((category) => (
+                <option key={category.key} value={category.label}>
+                  {category.label}
+                </option>
+              ))}
+            </select>
+            {errors.category && (
+              <span className="error">{errors.category}</span>
+            )}
+          </div>
           <div className="split-inputs">
             <div className="input-field">
               <label htmlFor="name">Quantity</label>
@@ -140,34 +147,6 @@ export default function CreateExercise({ user, setUser }) {
             )}
           </div>
 
-          {/* <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter a secure password"
-              value={form.password}
-              onChange={handleOnInputChange}
-            />
-            {errors.password && (
-              <span className="error">{errors.password}</span>
-            )}
-          </div>
-
-          <div className="input-field">
-            <label htmlFor="passwordConfirm">Confirm Password</label>
-            <input
-              type="password"
-              name="passwordConfirm"
-              placeholder="Confirm your password"
-              value={form.passwordConfirm}
-              onChange={handleOnInputChange}
-            />
-            {errors.passwordConfirm && (
-              <span className="error">{errors.passwordConfirm}</span>
-            )}
-          </div> */}
-
           <button
             className="btn"
             disabled={isProcessing}
@@ -176,12 +155,6 @@ export default function CreateExercise({ user, setUser }) {
             {isProcessing ? "Loading..." : "Save"}
           </button>
         </div>
-
-        {/* <div className="footer">
-          <p>
-            Already have an account? Login <Link to="/login">here</Link>
-          </p>
-        </div> */}
       </div>
     </div>
   );

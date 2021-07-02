@@ -3,7 +3,6 @@ const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Sleep {
   static async listSleepsForUser({ user }) {
-    
     const results = await db.query(
       `
     SELECT s.id AS "sleepId",
@@ -20,7 +19,6 @@ class Sleep {
     return results.rows;
   }
   static async listLastSleep({ user }) {
-   
     const results = await db.query(
       `
       SELECT start_time, end_time
@@ -31,16 +29,16 @@ class Sleep {
       DESC LIMIT 1
       
       `,
-        [user.email]
+      [user.email]
     );
-    
-      // [user.id]
-      // `
-      // SELECT SUM(end_time, start_time)
-      // FROM sleep AS s
-      // JOIN users AS u ON u.id = s.user_id
-      // WHERE u.id = (SELECT id FROM users WHERE email = $1)
-      // `,
+
+    // [user.id]
+    // `
+    // SELECT SUM(end_time, start_time)
+    // FROM sleep AS s
+    // JOIN users AS u ON u.id = s.user_id
+    // WHERE u.id = (SELECT id FROM users WHERE email = $1)
+    // `,
 
     return results.rows;
   }

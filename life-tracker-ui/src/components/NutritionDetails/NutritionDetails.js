@@ -25,7 +25,7 @@ export default function NutritionDetails({ user }) {
   return (
     <div className="NutritionDetails">
       {nutritions.map((nutrition) => (
-        <div className="card" key={nutrition.nutritionId}>
+        <div className="card lintl" key={nutrition.nutritionId}>
           <span>
             <img src={`${nutrition.imageUrl}`} alt="Nutrition picture"></img>
           </span>
