@@ -1,4 +1,0 @@
--- Best Practice
-Routes are plural, but models are singular
-/* Middleware runs in the middle of a request */
-res.status is sending a response back - usually through json

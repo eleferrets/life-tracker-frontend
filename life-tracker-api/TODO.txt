@@ -1,5 +1,0 @@
-Add models for each activity
-Work on the frontend
-Verify that the server works.
-Find out how to add a new something and save it
-Find out how to change the navbar button when the user is logged in
