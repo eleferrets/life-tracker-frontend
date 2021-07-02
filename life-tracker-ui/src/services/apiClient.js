@@ -58,6 +58,15 @@ class ApiClient {
     async createActivity(activity) {
         return await this.request({endpoint: `activity`, method: `POST`, data: activity})
     }
+    async fetchExerciseMinutes(user) {
+        return await this.request({endpoint: `exercise/minute`, method: `GET`, data: user})
+    }
+    async fetchNutritionCalories(user) {
+        return await this.request({endpoint: `nutrition/calorie`, method: `GET`, data: user})
+    }
+    async fetchLastSleep(user) {
+        return await this.request({endpoint: `sleep/last`, method: `GET`, data: user})
+    }
     async fetchUserFromToken() {
         return await this.request({endpoint: `auth/me`, method: `GET`})
     }

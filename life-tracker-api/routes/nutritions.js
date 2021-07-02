@@ -26,5 +26,15 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
     next(err);
   }
 });
+router.get("/calorie", security.requireAuthenticatedUser, async (req, res, next) => {
+  try {
+    // List all calories
+    const { user } = res.locals;
 
+    const calories = await Nutrition.listNutritionCalories({ user });
+    return res.status(200).json({ calories });
+  } catch (err) {
+    next(err);
+  }
+});
 module.exports = router;

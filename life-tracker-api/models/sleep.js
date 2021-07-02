@@ -19,6 +19,23 @@ class Sleep {
 
     return results.rows;
   }
+  static async listLastSleep({ user }) {
+   
+    const results = await db.query(
+    `
+    SELECT start_time, end_time
+    FROM sleep AS s
+    JOIN users AS u ON u.id = s.user_id
+    WHERE u.id = (SELECT id FROM users WHERE email = $1)
+    ORDER BY u.id
+    DESC LIMIT 1
+    
+    `,
+       [user.email]
+    );
+
+    return results.rows;
+  }
   static async createSleep({ sleep, user }) {
     if (!sleep || !Object.keys(sleep).length) {
       throw new BadRequestError("No sleep info provided");

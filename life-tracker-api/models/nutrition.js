@@ -21,6 +21,23 @@ class Nutrition {
 
     return results.rows;
   }
+  static async listNutritionCalories({ user }) {
+   
+    const results = await db.query(
+    `
+    SELECT SUM(n.calories) AS "calories",
+    u.id
+    FROM nutrition AS n
+    JOIN users AS u ON u.id = n.user_id
+    WHERE u.id = (SELECT id FROM users WHERE email = $1)
+    GROUP BY u.id
+    
+    `,
+       [user.email]
+    );
+
+    return results.rows;
+  }
   static async createNutrition({ nutrition, user }) {
     if (!nutrition || !Object.keys(nutrition).length) {
       throw new BadRequestError("No nutrition info provided");

@@ -26,5 +26,15 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
     next(err);
   }
 });
+router.get("/last", security.requireAuthenticatedUser, async (req, res, next) => {
+  try {
+    const { user } = res.locals;
+
+    const sleepy = await Sleep.listLastSleep({ user });
+    return res.status(200).json({ sleepy });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

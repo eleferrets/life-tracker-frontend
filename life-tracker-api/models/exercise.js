@@ -38,11 +38,7 @@ class Exercise {
 
     return results.rows;
   }
-      // 
-    // 
-    // 
-  // u.email AS "userEmail",
-  // SELECT * FROM Table ORDER BY ID DESC LIMIT 1
+
   static async createExercise({ exercise, user }) {
     if (!exercise || !Object.keys(exercise).length) {
       throw new BadRequestError("No exercise info provided");
